@@ -1,5 +1,20 @@
 # Output Formats
 
+## File-First Rule
+
+When generating an exam, write it to Markdown files in the study repository. Chat output should only summarize:
+- exam path
+- answer key path
+- KB path
+- how the learner should submit answers
+
+Use:
+
+```bash
+python <skill-dir>/scripts/study_repo.py init --root <study-repo-path>
+python <skill-dir>/scripts/study_repo.py new-exam --root <study-repo-path> --scope mixed --count 20
+```
+
 ## Exam File Template
 
 ```markdown
@@ -85,9 +100,10 @@ Tong diem: {score}/100 ({percent}%)
 
 ## Short Chat Output
 
-When not writing files, output:
-1. Exam metadata.
-2. Questions.
-3. "Gui dap an cua ban theo format: 1A 2B 3A,C ..."
+After writing files, output:
+1. `Da tao de: <exam_path>`
+2. `Da tao dap an/rubric: <answer_path>`
+3. `Knowledge base: <kb_path>`
+4. `Lam bai trong file de, roi gui dap an theo format: 1A 2B 3A,C ...`
 
 Do not include answer key inline unless requested.

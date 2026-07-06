@@ -10,6 +10,23 @@ Use the project KB when provided or discoverable. Common names:
 
 If multiple exist, prefer the one tracking learner proficiency and exam history.
 
+## Initialize Missing KB
+
+If no KB exists, run:
+
+```bash
+python <skill-dir>/scripts/study_repo.py init --root <study-repo-path> --title "AI Practice Study"
+```
+
+This creates:
+- `docs/user-knowledge-base.md`
+- `exams/mock-exams/`
+- `exams/mock-exams/answers/`
+- `exams/common/`, `exams/business/`, `exams/infrastructure/`, `exams/app-build/`
+- `reports/`
+
+Do not create a one-off chat-only exam when the study repo is missing. Initialize the repo first, then create exam files.
+
 ## Before Generating
 
 Read KB and extract:
@@ -24,13 +41,27 @@ Then select topics:
 - 20-30% broad coverage.
 - 10-20% stretch topics from the target exam blueprint.
 
-Append a generation record after creating an exam:
+Append a generation record after creating an exam file:
 
 ```markdown
 | YYYY-MM-DD | exam-code | Generated | scope/topics | pending | Intended drill: ... |
 ```
 
 If the KB has no table for generated exams, add a short "Pending Practice" section.
+
+## Exam File Creation
+
+Before writing a generated exam, run:
+
+```bash
+python <skill-dir>/scripts/study_repo.py new-exam --root <study-repo-path> --scope mixed --count 20
+```
+
+Then write:
+- student-facing questions to the returned `exam_path`
+- answer key/rubric to the returned `answer_path`
+
+Use `--scope common|business|infrastructure|app-build|mixed|mock` and `--slug <topic-slug>` when the user specifies a topic.
 
 ## During Grading
 

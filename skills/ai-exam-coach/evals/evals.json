@@ -4,16 +4,19 @@
       "name": "default_20_question_exam",
       "prompt": "Tao de on tap AI Thuc Chien tong hop",
       "assertions": [
+        "Initializes or reuses a study repository",
+        "Creates exam and answer markdown files before writing content",
         "Generates 20 questions by default",
         "Includes common section and Business/Infrastructure/App Build coverage",
         "Uses MCQ, multi-select, fill-in-blank, and scenario or code items",
-        "Does not include answer key inline unless requested"
+        "Does not include answer key inline in the student-facing exam"
       ]
     },
     {
       "name": "custom_count_topic",
       "prompt": "Tao 12 cau on RAGAS va guardrails, co dap an rieng",
       "assertions": [
+        "Creates markdown files in the study repository",
         "Generates exactly 12 questions",
         "Focuses on RAGAS and guardrails",
         "Separates student questions from answer key",

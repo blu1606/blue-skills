@@ -7,7 +7,7 @@ description: Generate, grade, and adapt Vietnamese AI practice exams from a know
 
 ## Overview
 
-Create Vietnamese AI practice exams for AI Thuc Chien-style review, then grade submissions and update the learner knowledge base. This skill handles question generation, answer keys, rubrics, feedback, and proficiency tracking; it does not fabricate learner scores, expose hidden source paths, or change unrelated project files.
+Create Vietnamese AI practice exams for AI Thuc Chien-style review, then grade submissions and update the learner knowledge base. This skill handles study repository setup, question generation, answer keys, rubrics, feedback, and proficiency tracking; it does not fabricate learner scores, expose hidden source paths, or change unrelated project files.
 
 ## Default Behavior
 
@@ -17,14 +17,29 @@ Create Vietnamese AI practice exams for AI Thuc Chien-style review, then grade s
 4. Prefer the exam structure in `references/exam-blueprint.md`.
 5. Use the topic taxonomy in `references/topic-map.md`.
 6. Enforce item-writing rules in `references/question-quality.md`.
-7. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
+7. Before generating or grading, ensure a study repository exists using `scripts/study_repo.py init`.
+8. Save exams and answer keys as Markdown files using `scripts/study_repo.py new-exam`; do not only print questions in chat.
+9. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
 
 ## Workflow Decision Tree
 
-- **Generate exam:** Read learner KB if present → select topics → build blueprint → write exam → write/update answer key → append a generation note to KB.
+- **Initialize study repo:** Run `python scripts/study_repo.py init --root <path>` → creates `docs/user-knowledge-base.md`, `exams/`, answer folders, and optional git repo.
+- **Generate exam:** Ensure repo → read learner KB → select topics → run `new-exam` → write exam file → write answer key → append a generation note to KB → return file paths.
 - **Grade exam:** Read exam + learner answers + answer key/rubric → score → explain misses → append grading report → update KB weaknesses/proficiency.
 - **Review weak areas:** Read KB → identify low-confidence topics → produce targeted 20-question drill or short theory review.
 - **Refresh KB:** Normalize topic names, merge duplicate weakness notes, add new topic coverage without deleting prior history.
+
+## Initialize Study Repository
+
+Run the bundled script whenever the user starts a new study workspace, asks to "init repo", or asks to create an exam but the expected structure is missing:
+
+```bash
+python <skill-dir>/scripts/study_repo.py init --root <study-repo-path> --title "AI Practice Study"
+```
+
+Use `--no-git` only if the user does not want a git repository.
+
+The script is idempotent: it creates missing folders/files and keeps existing KB/exam files intact.
 
 ## Generate Exam
 
@@ -33,12 +48,19 @@ Create Vietnamese AI practice exams for AI Thuc Chien-style review, then grade s
    - `scope`: common, business, infrastructure, app-build, mixed, or named topics.
    - `difficulty`: default 30% easy, 50% medium, 20% hard unless a real exam format says otherwise.
    - `formats`: default MCQ + multi-select + fill-in-blank + short scenario.
-2. Read the learner knowledge base before selecting topics when available.
-3. Prioritize weak, stale, or under-tested topics; keep some broad coverage.
-4. Generate questions only from available course/KB context and stable domain knowledge.
-5. Separate student-facing exam from answer key unless the user asks to include answers inline.
-6. Include metadata: title, code, timestamp, scope, count, estimated time, scoring.
-7. Update KB after generation with exam code, topics covered, intended difficulty, and pending status.
+2. Ensure the study repository exists; if not, run `scripts/study_repo.py init`.
+3. Read the learner knowledge base before selecting topics when available.
+4. Create the exam/answer files before writing content:
+   ```bash
+   python <skill-dir>/scripts/study_repo.py new-exam --root <study-repo-path> --scope mixed --count 20
+   ```
+   Use the script output paths for all generated content.
+5. Prioritize weak, stale, or under-tested topics; keep some broad coverage.
+6. Generate questions only from available course/KB context and stable domain knowledge.
+7. Write the student-facing exam to the exam file and the key/rubric to the answer file.
+8. Include metadata: title, code, timestamp, scope, count, estimated time, scoring.
+9. Update KB after generation with exam code, topics covered, intended difficulty, and pending status.
+10. In chat, return only the created file paths and brief next step; do not duplicate the full exam unless requested.
 
 ## Grade Exam
 
@@ -75,3 +97,4 @@ Use `references/output-formats.md` for concrete Markdown templates.
 - `references/knowledge-base-workflow.md`: generation/grading KB update rules.
 - `references/output-formats.md`: Markdown templates.
 - `references/research-notes.md`: condensed research rationale and citations.
+- `scripts/study_repo.py`: initialize study repo and create exam/answer Markdown files.

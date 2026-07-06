@@ -9,6 +9,7 @@ Reusable agent skills by Blue.
 Generate, grade, and adapt Vietnamese AI practice exams from a learner knowledge base.
 
 Use it for:
+- Initializing a reusable study repository with folders and a learner knowledge base.
 - Creating AI practice exams and mock exams.
 - Generating MCQ, multi-select, fill-in-blank, scenario, and code questions.
 - Grading submissions with answer keys and rubrics.
@@ -35,6 +36,12 @@ npx skills add blu1606/blue-skills --skill ai-exam-coach -a claude-code -g -y
 Use after install by asking your agent:
 
 ```text
+Init repo hoc tong tai ./ai-study
+```
+
+Then:
+
+```text
 Tao de on tap AI Thuc Chien 20 cau
 ```
 
@@ -50,6 +57,7 @@ Cham bai nay va cap nhat knowledge base
 skills/
   ai-exam-coach/
     SKILL.md
+    scripts/
     references/
     evals/
 ```
