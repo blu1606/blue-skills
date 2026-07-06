@@ -15,16 +15,19 @@ Create Vietnamese AI practice exams for AI Thực Chiến-style review, then gra
 2. If the user supplies parameters, follow them: question count, topic, track, difficulty, duration, output path, answer-key visibility.
 3. Use Vietnamese with full diacritics unless the user explicitly requests another language or no-diacritic text.
 4. Never generate Vietnamese exam content as ASCII/no-diacritic text. Use `Đề ôn tập`, `Mã đề`, `Câu hỏi`, `Đáp án`, `Giải thích`, not `De on tap`, `Ma de`, `Cau hoi`, `Dap an`, `Giai thich`.
-5. If the user only says "tạo đề", "tạo đề ôn tập", "mock exam", or similar without a topic, do not ask a clarifying question. Create a mixed 20-question exam from `references/exam-blueprint.md`.
-6. Use the topic taxonomy in `references/topic-map.md`.
-7. Enforce item-writing rules in `references/question-quality.md`.
-8. Before generating or grading, ensure a study repository exists using `scripts/study_repo.py init`.
-9. Save exams and answer keys as Markdown files using `scripts/study_repo.py new-exam`; do not only print questions in chat.
-10. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
+5. If the user only says "tạo đề", "tạo đề ôn tập", "mock exam", or similar without a topic, check KB status first with `scripts/study_repo.py kb-status`.
+6. If the KB is empty, ask exactly one onboarding question: diagnostic tổng hợp first or luyện từng kỹ năng. Do not create a personalized exam from an empty KB.
+7. If the KB has prior evidence, create a mixed 20-question exam from `references/exam-blueprint.md` without asking for Day folders.
+8. Use the topic taxonomy in `references/topic-map.md`.
+9. Enforce item-writing rules in `references/question-quality.md`.
+10. Before generating or grading, ensure a study repository exists using `scripts/study_repo.py init`.
+11. Save exams and answer keys as Markdown files using `scripts/study_repo.py new-exam`; do not only print questions in chat.
+12. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
 
 ## Workflow Decision Tree
 
 - **Initialize study repo:** Run `python scripts/study_repo.py init --root <path>` → creates `docs/user-knowledge-base.md`, `exams/`, answer folders, and optional git repo.
+- **Empty KB onboarding:** Run `python scripts/study_repo.py kb-status --root <path>` → if empty, ask diagnostic vs skill drill before generating.
 - **Generate exam:** Ensure repo → read learner KB → select topics → run `new-exam` → write exam file → write answer key → append a generation note to KB → return file paths.
 - **Grade exam:** Read exam + learner answers + answer key/rubric → score → explain misses → append grading report → update KB weaknesses/proficiency.
 - **Review weak areas:** Read KB → identify low-confidence topics → produce targeted 20-question drill or short theory review.
@@ -50,18 +53,29 @@ The script is idempotent: it creates missing folders/files and keeps existing KB
    - `difficulty`: default 30% easy, 50% medium, 20% hard unless a real exam format says otherwise.
    - `formats`: default MCQ + multi-select + fill-in-blank + short scenario.
 2. Ensure the study repository exists; if not, run `scripts/study_repo.py init`.
-3. Read the learner knowledge base before selecting topics when available.
-4. Create the exam/answer files before writing content:
+3. Check KB status:
+   ```bash
+   python <skill-dir>/scripts/study_repo.py kb-status --root <study-repo-path>
+   ```
+4. If `is_empty` is true and the user did not explicitly request a specific topic/skill, ask:
+   "Knowledge base hiện chưa có dữ liệu năng lực. Bạn muốn làm bài diagnostic tổng hợp trước hay luyện từng kỹ năng?"
+   Offer only:
+   - Diagnostic tổng hợp 20 câu (Recommended): đo baseline ban đầu.
+   - Luyện từng kỹ năng: người dùng chọn RAG, Agent, Prompt Engineering, RAGAS, AI Product, Model Serving, hoặc chủ đề khác.
+5. If the user chooses diagnostic, create a `diagnostic`/`mixed` exam using the diagnostic blueprint.
+6. If the user chooses skill drill or already specified a topic, create a scoped drill and mark it as not-yet-personalized until graded.
+7. If `is_empty` is false, read the learner knowledge base before selecting topics.
+8. Create the exam/answer files before writing content:
    ```bash
    python <skill-dir>/scripts/study_repo.py new-exam --root <study-repo-path> --scope mixed --count 20
    ```
    Use the script output paths for all generated content.
-5. Prioritize weak, stale, or under-tested topics; keep some broad coverage.
-6. Generate questions only from available course/KB context and stable domain knowledge.
-7. Write the student-facing exam to the exam file and the key/rubric to the answer file.
-8. Include metadata: title, code, timestamp, scope, count, estimated time, scoring.
-9. Update KB after generation with exam code, topics covered, intended difficulty, and pending status.
-10. In chat, return only the created file paths and brief next step; do not duplicate the full exam unless requested.
+9. Prioritize weak, stale, or under-tested topics only when KB has evidence; otherwise use diagnostic/scoped coverage.
+10. Generate questions only from available course/KB context and stable domain knowledge.
+11. Write the student-facing exam to the exam file and the key/rubric to the answer file.
+12. Include metadata: title, code, timestamp, scope, count, estimated time, scoring.
+13. Update KB after generation with exam code, topics covered, intended difficulty, and pending status.
+14. In chat, return only the created file paths and brief next step; do not duplicate the full exam unless requested.
 
 ## Clarification Policy
 

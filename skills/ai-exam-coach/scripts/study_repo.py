@@ -162,6 +162,54 @@ def init_repo(args: argparse.Namespace) -> None:
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
+def table_has_data_rows(text: str, heading: str) -> bool:
+    pattern = rf"##[^\n]*{re.escape(heading)}[^\n]*\s*\n(?P<body>.*?)(?:\n## |\Z)"
+    match = re.search(pattern, text, flags=re.DOTALL | re.IGNORECASE)
+    if not match:
+        return False
+    body = match.group("body")
+    rows = [line.strip() for line in body.splitlines() if line.strip().startswith("|")]
+    data_rows = [
+        row for row in rows
+        if not re.match(r"^\|\s*-+\s*\|", row)
+        and not re.search(r"\|\s*(Ngày|Date|Mã đề|Exam Code|Mảng|Area)\s*\|", row, re.IGNORECASE)
+    ]
+    return any(row.count("|") >= 4 and not re.search(r"\|\s*\|", row) for row in data_rows)
+
+
+def kb_status(args: argparse.Namespace) -> None:
+    root = Path(args.root).expanduser().resolve()
+    kb_path = root / "docs" / "user-knowledge-base.md"
+    exists = kb_path.exists()
+    text = kb_path.read_text(encoding="utf-8") if exists else ""
+
+    has_exam_history = (
+        table_has_data_rows(text, "Lịch sử bài kiểm tra")
+        or table_has_data_rows(text, "Lịch sử bài Test")
+        or table_has_data_rows(text, "Exam History")
+    )
+    has_review_items = bool(re.search(r"## (Hàng đợi ôn lại|Review Queue).*?\n\s*-\s+(?!Thêm các lỗi|Add repeated)", text, flags=re.DOTALL | re.IGNORECASE))
+    has_nonzero_coverage = bool(re.search(r"\|\s*(?!0%)\d+%", text))
+    has_assessed = bool(re.search(
+        r"(🔵|🟢|🟡|🔴|\bReady\b|\bGood\b|\bNeeds review\b|\bWeak\b)",
+        text,
+        flags=re.IGNORECASE,
+    ))
+    is_empty = not exists or not (has_exam_history or has_review_items or has_nonzero_coverage or has_assessed)
+
+    result = {
+        "root": str(root),
+        "kb_path": str(kb_path),
+        "exists": exists,
+        "is_empty": is_empty,
+        "has_exam_history": has_exam_history,
+        "has_review_items": has_review_items,
+        "has_nonzero_coverage": has_nonzero_coverage,
+        "has_assessed_proficiency": has_assessed,
+    }
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
 def scope_dir(scope: str) -> str:
     mapping = {
         "common": "exams/common",
@@ -277,6 +325,10 @@ def build_parser() -> argparse.ArgumentParser:
     init_parser.add_argument("--title", default=DEFAULT_TITLE, help="study repository title")
     init_parser.add_argument("--no-git", dest="git", action="store_false", help="do not initialize git")
     init_parser.set_defaults(git=True, func=init_repo)
+
+    status_parser = subparsers.add_parser("kb-status", help="inspect whether the learner KB has evidence")
+    status_parser.add_argument("--root", required=True, help="study repository path")
+    status_parser.set_defaults(func=kb_status)
 
     exam_parser = subparsers.add_parser("new-exam", help="create exam and answer markdown files")
     exam_parser.add_argument("--root", required=True, help="study repository path")

@@ -35,6 +35,40 @@ Clarification rule:
 - If a day folder is discovered during scouting, map its concepts into the blueprint silently.
 - Ask only when the user explicitly says "theo ngày", "Day X", or gives contradictory scopes.
 
+Exception: if the learner KB is empty, ask the onboarding question from `knowledge-base-workflow.md` before generating. This is not a topic clarification; it chooses between baseline diagnosis and skill-specific practice.
+
+## Diagnostic Exam Blueprint
+
+Use this when KB is empty and the user chooses diagnostic.
+
+Goal:
+- Measure initial proficiency, not remediate known weaknesses.
+- Cover broad fundamentals with enough applied questions to expose gaps.
+- Produce data for `Knowledge Matrix`, `Exam History`, and `Review Queue`.
+
+Default 20-question diagnostic:
+- Common: 10 questions.
+- Business: 3 questions.
+- Infrastructure: 3 questions.
+- App Build: 4 questions.
+
+Diagnostic difficulty:
+- Easy: 40%.
+- Medium: 45%.
+- Hard: 15%.
+
+Diagnostic type mix:
+- 10 single-answer MCQ.
+- 3 multi-select.
+- 4 fill-in-blank / short factual.
+- 2 scenario debug / product decision.
+- 1 code or pseudocode challenge.
+
+After grading diagnostic:
+- Do not mark any topic "Ready" from one easy item.
+- Mark strong topics as "baseline good" until confirmed by a later drill.
+- Prioritize next drills from the lowest scoring sections.
+
 ## Question Type Mix
 
 Default 20-question mix:

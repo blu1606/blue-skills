@@ -16,6 +16,17 @@
       ]
     },
     {
+      "name": "empty_kb_onboarding",
+      "prompt": "Tạo đề trong repo mới vừa init, knowledge base chưa có lịch sử làm bài",
+      "assertions": [
+        "Checks KB status before generating",
+        "Detects empty learner knowledge base",
+        "Asks one onboarding question with diagnostic tổng hợp as recommended option",
+        "Offers skill-specific practice as the second option",
+        "Does not claim personalization before diagnostic or grading evidence exists"
+      ]
+    },
+    {
       "name": "custom_count_topic",
       "prompt": "Tạo 12 câu ôn RAGAS và guardrails, có đáp án riêng",
       "assertions": [

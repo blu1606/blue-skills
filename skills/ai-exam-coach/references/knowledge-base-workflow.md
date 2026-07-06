@@ -36,12 +36,34 @@ Read KB and extract:
 - Topics already over-tested.
 - User preferences: language, style, difficulty, exam path.
 
+First check whether the KB has learner evidence:
+
+```bash
+python <skill-dir>/scripts/study_repo.py kb-status --root <study-repo-path>
+```
+
+Treat KB as empty when:
+- `Exam History` has no attempt rows.
+- `Knowledge Matrix` still has only `0%` coverage or `Chưa đánh giá`/`Not assessed`.
+- `Review Queue` has no real weakness items.
+- No graded diagnostic or practice report exists.
+
+If KB is empty, do not claim personalization. Ask exactly one onboarding question:
+
+```text
+Knowledge base hiện chưa có dữ liệu năng lực. Bạn muốn:
+1. Làm bài diagnostic tổng hợp 20 câu (Recommended) để đo baseline ban đầu
+2. Luyện từng kỹ năng, ví dụ RAG, Agent, Prompt Engineering, RAGAS, AI Product, Model Serving
+```
+
+If the user chooses diagnostic, create a diagnostic mixed exam. If the user chooses skill drill, ask for the skill only if it was not already specified.
+
 Then select topics:
 - 50-70% weak or stale topics.
 - 20-30% broad coverage.
 - 10-20% stretch topics from the target exam blueprint.
 
-For a broad "tạo đề" request, if the KB has no clear weakness data, skip clarification and use the default mixed blueprint. Do not ask the user to choose among source folders, Day folders, or recently discovered course-note groups.
+For a broad "tạo đề" request with a non-empty KB, skip clarification and use the default mixed blueprint plus KB weaknesses. Do not ask the user to choose among source folders, Day folders, or recently discovered course-note groups.
 
 Append a generation record after creating an exam file:
 
@@ -73,6 +95,12 @@ Map each question to:
 - difficulty
 - points earned
 - misconception if wrong
+
+If grading a diagnostic exam, use the result to initialize the learner profile:
+- Fill initial proficiency levels by section/topic.
+- Add the first `Exam History` row.
+- Create `Review Queue` from missed or partial-credit topics.
+- Recommend the next 1-2 drills based on lowest sections.
 
 Use these levels:
 - Blue/Ready: >= 85% and no severe conceptual miss.
