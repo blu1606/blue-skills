@@ -1,0 +1,34 @@
+{
+  "evals": [
+    {
+      "name": "default_20_question_exam",
+      "prompt": "Tao de on tap AI Thuc Chien tong hop",
+      "assertions": [
+        "Generates 20 questions by default",
+        "Includes common section and Business/Infrastructure/App Build coverage",
+        "Uses MCQ, multi-select, fill-in-blank, and scenario or code items",
+        "Does not include answer key inline unless requested"
+      ]
+    },
+    {
+      "name": "custom_count_topic",
+      "prompt": "Tao 12 cau on RAGAS va guardrails, co dap an rieng",
+      "assertions": [
+        "Generates exactly 12 questions",
+        "Focuses on RAGAS and guardrails",
+        "Separates student questions from answer key",
+        "Tags topics and difficulty in answer key"
+      ]
+    },
+    {
+      "name": "grade_and_update_kb",
+      "prompt": "Cham bai mock exam nay va cap nhat knowledge base",
+      "assertions": [
+        "Scores answers with rubric where needed",
+        "Explains incorrect answers",
+        "Identifies topic-level weaknesses",
+        "Updates learner knowledge base without deleting prior history"
+      ]
+    }
+  ]
+}
