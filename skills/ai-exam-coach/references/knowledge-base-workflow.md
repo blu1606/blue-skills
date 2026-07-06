@@ -41,6 +41,8 @@ Then select topics:
 - 20-30% broad coverage.
 - 10-20% stretch topics from the target exam blueprint.
 
+For a broad "tạo đề" request, if the KB has no clear weakness data, skip clarification and use the default mixed blueprint. Do not ask the user to choose among source folders, Day folders, or recently discovered course-note groups.
+
 Append a generation record after creating an exam file:
 
 ```markdown

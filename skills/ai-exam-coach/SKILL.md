@@ -7,19 +7,20 @@ description: Generate, grade, and adapt Vietnamese AI practice exams from a know
 
 ## Overview
 
-Create Vietnamese AI practice exams for AI Thuc Chien-style review, then grade submissions and update the learner knowledge base. This skill handles study repository setup, question generation, answer keys, rubrics, feedback, and proficiency tracking; it does not fabricate learner scores, expose hidden source paths, or change unrelated project files.
+Create Vietnamese AI practice exams for AI Thực Chiến-style review, then grade submissions and update the learner knowledge base. This skill handles study repository setup, question generation, answer keys, rubrics, feedback, and proficiency tracking; it does not fabricate learner scores, expose hidden source paths, or change unrelated project files.
 
 ## Default Behavior
 
 1. If the user asks to create a practice exam, generate 20 questions by default.
 2. If the user supplies parameters, follow them: question count, topic, track, difficulty, duration, output path, answer-key visibility.
-3. Use Vietnamese unless the user requests another language.
-4. Prefer the exam structure in `references/exam-blueprint.md`.
-5. Use the topic taxonomy in `references/topic-map.md`.
-6. Enforce item-writing rules in `references/question-quality.md`.
-7. Before generating or grading, ensure a study repository exists using `scripts/study_repo.py init`.
-8. Save exams and answer keys as Markdown files using `scripts/study_repo.py new-exam`; do not only print questions in chat.
-9. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
+3. Use Vietnamese with full diacritics unless the user explicitly requests another language or no-diacritic text.
+4. Never generate Vietnamese exam content as ASCII/no-diacritic text. Use `Đề ôn tập`, `Mã đề`, `Câu hỏi`, `Đáp án`, `Giải thích`, not `De on tap`, `Ma de`, `Cau hoi`, `Dap an`, `Giai thich`.
+5. If the user only says "tạo đề", "tạo đề ôn tập", "mock exam", or similar without a topic, do not ask a clarifying question. Create a mixed 20-question exam from `references/exam-blueprint.md`.
+6. Use the topic taxonomy in `references/topic-map.md`.
+7. Enforce item-writing rules in `references/question-quality.md`.
+8. Before generating or grading, ensure a study repository exists using `scripts/study_repo.py init`.
+9. Save exams and answer keys as Markdown files using `scripts/study_repo.py new-exam`; do not only print questions in chat.
+10. Save or update knowledge base artifacts using `references/knowledge-base-workflow.md`.
 
 ## Workflow Decision Tree
 
@@ -61,6 +62,14 @@ The script is idempotent: it creates missing folders/files and keeps existing KB
 8. Include metadata: title, code, timestamp, scope, count, estimated time, scoring.
 9. Update KB after generation with exam code, topics covered, intended difficulty, and pending status.
 10. In chat, return only the created file paths and brief next step; do not duplicate the full exam unless requested.
+
+## Clarification Policy
+
+- Do not ask the user to choose among discovered Day folders when the request is broad.
+- Do not turn source folder names such as `day-22`, `day-24`, or `day-26` into user-facing exam options unless the user explicitly asks for a day-specific drill.
+- Use discovered course notes only as grounding material mapped into the blueprint sections: Common, Business, Infrastructure, App Build.
+- Ask a clarification only when a required output location cannot be inferred or when the user requests multiple incompatible scopes.
+- For broad generation, always proceed with the default mixed distribution: Common 10, Business 3, Infrastructure 3, App Build 4.
 
 ## Grade Exam
 

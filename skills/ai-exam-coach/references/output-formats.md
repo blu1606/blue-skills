@@ -1,5 +1,23 @@
 # Output Formats
 
+## Vietnamese Diacritics Rule
+
+All learner-facing Vietnamese text must use full Vietnamese diacritics. Do not write no-diacritic Vietnamese unless the user explicitly requests it.
+
+Use these labels:
+- `Đề ôn tập`, not `De on tap`
+- `Mã đề`, not `Ma de`
+- `Ngày tạo`, not `Ngay tao`
+- `Số câu`, not `So cau`
+- `Thời gian gợi ý`, not `Thoi gian goi y`
+- `Tổng điểm`, not `Tong diem`
+- `Phân bổ`, not `Phan bo`
+- `Hướng dẫn`, not `Huong dan`
+- `Câu hỏi`, not `Cau hoi`
+- `Đáp án`, not `Dap an`
+- `Giải thích ngắn`, not `Giai thich ngan`
+- `Báo cáo chấm điểm`, not `Bao cao cham diem`
+
 ## File-First Rule
 
 When generating an exam, write it to Markdown files in the study repository. Chat output should only summarize:
@@ -18,33 +36,33 @@ python <skill-dir>/scripts/study_repo.py new-exam --root <study-repo-path> --sco
 ## Exam File Template
 
 ```markdown
-# De on tap AI Thuc Chien - {scope}
+# Đề ôn tập AI Thực Chiến - {scope}
 
-Ma de: {exam-code}
-Ngay tao: {YYYY-MM-DD HH:mm}
-So cau: {count}
-Thoi gian goi y: {minutes} phut
-Tong diem: 100
+Mã đề: {exam-code}
+Ngày tạo: {YYYY-MM-DD HH:mm}
+Số câu: {count}
+Thời gian gợi ý: {minutes} phút
+Tổng điểm: 100
 
-## Phan bo
+## Phân bổ
 
-| Phan | So cau | Diem | Chu de |
+| Phần | Số câu | Điểm | Chủ đề |
 | --- | ---: | ---: | --- |
 | Common | ... | ... | ... |
 | Business | ... | ... | ... |
 | Infrastructure | ... | ... | ... |
 | App Build | ... | ... | ... |
 
-## Huong dan
+## Hướng dẫn
 
-- Tra loi MCQ bang A/B/C/D.
-- Multi-select ghi tat ca lua chon, vi du: A,C.
-- Fill-in-blank ghi dap an ngan.
-- Scenario/code tra loi ngan gon, dung trong tam.
+- Trả lời MCQ bằng A/B/C/D.
+- Multi-select ghi tất cả lựa chọn, ví dụ: A,C.
+- Fill-in-blank ghi đáp án ngắn.
+- Scenario/code trả lời ngắn gọn, đúng trọng tâm.
 
-## Cau hoi
+## Câu hỏi
 
-**Cau 1.** ...
+**Câu 1.** ...
 A. ...
 B. ...
 C. ...
@@ -54,15 +72,15 @@ D. ...
 ## Answer Key Template
 
 ```markdown
-# Dap an - {exam-code}
+# Đáp án - {exam-code}
 
-| Cau | Dap an | Diem | Topic | Difficulty | Giai thich ngan |
+| Câu | Đáp án | Điểm | Topic | Difficulty | Giải thích ngắn |
 | ---: | --- | ---: | --- | --- | --- |
 | 1 | B | 4 | rag-pipeline | Medium | ... |
 
-## Rubric tu luan/code
+## Rubric tự luận/code
 
-**Cau X (/8):**
+**Câu X (/8):**
 - ... (2d)
 - ... (2d)
 - ... (2d)
@@ -72,38 +90,38 @@ D. ...
 ## Grading Report Template
 
 ```markdown
-## Bao cao cham diem - {exam-code}
+## Báo cáo chấm điểm - {exam-code}
 
-Tong diem: {score}/100 ({percent}%)
+Tổng điểm: {score}/100 ({percent}%)
 
-### Diem theo phan
+### Điểm theo phần
 
-| Phan | Diem | Nhan xet |
+| Phần | Điểm | Nhận xét |
 | --- | ---: | --- |
 | Common | ... | ... |
 | Business | ... | ... |
 | Infrastructure | ... | ... |
 | App Build | ... | ... |
 
-### Cau sai / can sua
+### Câu sai / cần sửa
 
-| Cau | Dap an cua ban | Dap an dung | Loi goc | Sua nhanh |
+| Câu | Đáp án của bạn | Đáp án đúng | Lỗi gốc | Sửa nhanh |
 | ---: | --- | --- | --- | --- |
 | ... | ... | ... | ... | ... |
 
-### Cap nhat KB
+### Cập nhật KB
 
-- Topics len muc: ...
-- Topics can on: ...
-- De xuat drill tiep theo: ...
+- Topics lên mức: ...
+- Topics cần ôn: ...
+- Đề xuất drill tiếp theo: ...
 ```
 
 ## Short Chat Output
 
 After writing files, output:
-1. `Da tao de: <exam_path>`
-2. `Da tao dap an/rubric: <answer_path>`
+1. `Đã tạo đề: <exam_path>`
+2. `Đã tạo đáp án/rubric: <answer_path>`
 3. `Knowledge base: <kb_path>`
-4. `Lam bai trong file de, roi gui dap an theo format: 1A 2B 3A,C ...`
+4. `Làm bài trong file đề, rồi gửi đáp án theo format: 1A 2B 3A,C ...`
 
 Do not include answer key inline unless requested.

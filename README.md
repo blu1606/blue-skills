@@ -6,7 +6,7 @@ Reusable agent skills by Blue.
 
 ### ai-exam-coach
 
-Generate, grade, and adapt Vietnamese AI practice exams from a learner knowledge base.
+Generate, grade, and adapt Vietnamese AI practice exams from a learner knowledge base. Generated Vietnamese content is written with full diacritics by default.
 
 Use it for:
 - Initializing a reusable study repository with folders and a learner knowledge base.
@@ -36,19 +36,19 @@ npx skills add blu1606/blue-skills --skill ai-exam-coach -a claude-code -g -y
 Use after install by asking your agent:
 
 ```text
-Init repo hoc tong tai ./ai-study
+Init repo học tổng tại ./ai-study
 ```
 
 Then:
 
 ```text
-Tao de on tap AI Thuc Chien 20 cau
+Tạo đề ôn tập AI Thực Chiến 20 câu
 ```
 
 or:
 
 ```text
-Cham bai nay va cap nhat knowledge base
+Chấm bài này và cập nhật knowledge base
 ```
 
 ## Repository Layout

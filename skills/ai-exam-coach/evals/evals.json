@@ -2,10 +2,13 @@
   "evals": [
     {
       "name": "default_20_question_exam",
-      "prompt": "Tao de on tap AI Thuc Chien tong hop",
+      "prompt": "Tạo đề ôn tập AI Thực Chiến tổng hợp",
       "assertions": [
         "Initializes or reuses a study repository",
         "Creates exam and answer markdown files before writing content",
+        "Uses Vietnamese with full diacritics in generated exam content",
+        "Does not ask the user to choose Day folders for a broad exam request",
+        "Uses the default mixed blueprint when no topic is specified",
         "Generates 20 questions by default",
         "Includes common section and Business/Infrastructure/App Build coverage",
         "Uses MCQ, multi-select, fill-in-blank, and scenario or code items",
@@ -14,9 +17,10 @@
     },
     {
       "name": "custom_count_topic",
-      "prompt": "Tao 12 cau on RAGAS va guardrails, co dap an rieng",
+      "prompt": "Tạo 12 câu ôn RAGAS và guardrails, có đáp án riêng",
       "assertions": [
         "Creates markdown files in the study repository",
+        "Uses Vietnamese with full diacritics",
         "Generates exactly 12 questions",
         "Focuses on RAGAS and guardrails",
         "Separates student questions from answer key",
@@ -25,7 +29,7 @@
     },
     {
       "name": "grade_and_update_kb",
-      "prompt": "Cham bai mock exam nay va cap nhat knowledge base",
+      "prompt": "Chấm bài mock exam này và cập nhật knowledge base",
       "assertions": [
         "Scores answers with rubric where needed",
         "Explains incorrect answers",

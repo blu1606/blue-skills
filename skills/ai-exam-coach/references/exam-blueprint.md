@@ -4,6 +4,8 @@
 
 Use this structure when the user asks for AI Thuc Chien, midterm, mock exam, or broad review.
 
+For a broad request such as "tạo đề" or "tạo đề ôn tập", generate this mixed exam immediately. Do not ask the user to choose Day folders or source-note groups. Day/course files are grounding sources, not the exam structure.
+
 | Section | Weight | Time | Coverage |
 | --- | ---: | ---: | --- |
 | Part I - Common | 50% | 60 min for full exam | AI design patterns, RAG pipeline, prompt engineering, agent architecture, observability, AI security |
@@ -17,10 +19,21 @@ For 20-question default:
 - Infrastructure: 3 questions.
 - App Build: 4 questions.
 
+Default mixed topic coverage:
+- Common questions must cover at least 4 of: AI design patterns, RAG pipeline, prompt engineering, agent architecture, observability, AI security.
+- Business questions must cover at least 2 of: product management, ROI, AI roadmap, EU AI Act, Vietnam AI/legal context.
+- Infrastructure questions must cover at least 2 of: data lakehouse, GPU FinOps, model serving, CI/CD, AI security.
+- App Build questions must cover at least 2 of: advanced agent patterns, advanced RAG, LoRA/QLoRA, RAGAS metrics, code challenge.
+
 For user-specified counts:
 - Preserve the 50% common / 50% tracks split when count >= 12.
 - For small drills (<12), prioritize requested topic and weak KB topics.
 - For track-only drills, allocate all questions to that track.
+
+Clarification rule:
+- If no topic is specified, do not ask for one; use the default mixed exam.
+- If a day folder is discovered during scouting, map its concepts into the blueprint silently.
+- Ask only when the user explicitly says "theo ngày", "Day X", or gives contradictory scopes.
 
 ## Question Type Mix
 

@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-DEFAULT_TITLE = "AI Practice Study"
+DEFAULT_TITLE = "Ôn tập AI"
 
 
 def slugify(value: str) -> str:
@@ -40,67 +40,67 @@ def kb_template(title: str, now: datetime) -> str:
     today = now.strftime("%Y-%m-%d")
     return f"""# User Knowledge Base - {title}
 
-This file tracks learner proficiency, exam coverage, and follow-up drills.
+Tài liệu này theo dõi lộ trình ôn tập, độ bao phủ kiến thức, điểm yếu và mức độ sẵn sàng của người học.
 
-## Overview
+## Tổng quan
 
-- Status: Not assessed yet.
-- Average score: N/A.
-- Readiness: N/A.
-- Last updated: {today}.
+- Trạng thái: Chưa đánh giá.
+- Điểm trung bình: N/A.
+- Mức độ sẵn sàng: N/A.
+- Cập nhật lần cuối: {today}.
 
-## Knowledge Matrix
+## Ma trận kiến thức
 
-| Area | Topic | Coverage | Proficiency | Notes / Weaknesses |
+| Mảng | Chủ đề | Bao phủ | Proficiency | Ghi chú / Điểm yếu |
 | --- | --- | ---: | --- | --- |
-| Common | AI design patterns | 0% | Not assessed |  |
-| Common | RAG pipeline | 0% | Not assessed |  |
-| Common | Prompt engineering | 0% | Not assessed |  |
-| Common | Agent architecture | 0% | Not assessed |  |
-| Common | Observability | 0% | Not assessed |  |
-| Common | AI security | 0% | Not assessed |  |
-| Business | Product management / ROI / roadmap | 0% | Not assessed |  |
-| Business | Compliance / governance | 0% | Not assessed |  |
-| Infrastructure | Data lakehouse / GPU FinOps / serving | 0% | Not assessed |  |
-| Infrastructure | CI/CD / AI security | 0% | Not assessed |  |
-| App Build | Advanced agents / RAG / LoRA / RAGAS | 0% | Not assessed |  |
-| App Build | Code challenge | 0% | Not assessed |  |
+| Chung | AI design patterns | 0% | Chưa đánh giá |  |
+| Chung | RAG pipeline | 0% | Chưa đánh giá |  |
+| Chung | Prompt engineering | 0% | Chưa đánh giá |  |
+| Chung | Agent architecture | 0% | Chưa đánh giá |  |
+| Chung | Observability | 0% | Chưa đánh giá |  |
+| Chung | AI security | 0% | Chưa đánh giá |  |
+| Business | Product management / ROI / roadmap | 0% | Chưa đánh giá |  |
+| Business | Compliance / governance | 0% | Chưa đánh giá |  |
+| Infrastructure | Data lakehouse / GPU FinOps / serving | 0% | Chưa đánh giá |  |
+| Infrastructure | CI/CD / AI security | 0% | Chưa đánh giá |  |
+| App Build | Advanced agents / RAG / LoRA / RAGAS | 0% | Chưa đánh giá |  |
+| App Build | Code challenge | 0% | Chưa đánh giá |  |
 
-## Exam History
+## Lịch sử bài kiểm tra
 
-| Date | Exam Code | Scope | Score | Notes |
+| Ngày | Mã đề | Phạm vi | Điểm | Nhận xét |
 | --- | --- | --- | --- | --- |
 
-## Pending Practice
+## Đề đang chờ làm
 
-| Date | Exam Code | Scope / Topics | Status | Intended Drill |
+| Ngày | Mã đề | Phạm vi / Chủ đề | Trạng thái | Mục tiêu luyện tập |
 | --- | --- | --- | --- | --- |
 
-## Review Queue
+## Hàng đợi ôn lại
 
-- Add repeated misses here after grading.
+- Thêm các lỗi lặp lại sau khi chấm bài.
 """
 
 
 def readme_template(title: str) -> str:
     return f"""# {title}
 
-Study workspace generated for AI exam practice.
+Workspace ôn tập được tạo cho luyện đề AI.
 
-## Structure
+## Cấu trúc
 
-- `docs/user-knowledge-base.md`: learner profile and exam history.
-- `exams/mock-exams/`: mixed practice exams.
-- `exams/mock-exams/answers/`: answer keys and rubrics.
-- `exams/common/`, `exams/business/`, `exams/infrastructure/`, `exams/app-build/`: scoped drills.
-- `reports/`: grading reports and review notes.
+- `docs/user-knowledge-base.md`: hồ sơ năng lực và lịch sử bài kiểm tra.
+- `exams/mock-exams/`: đề luyện tập tổng hợp.
+- `exams/mock-exams/answers/`: đáp án và rubric.
+- `exams/common/`, `exams/business/`, `exams/infrastructure/`, `exams/app-build/`: đề luyện theo phạm vi.
+- `reports/`: báo cáo chấm điểm và ghi chú ôn tập.
 
 ## Workflow
 
-1. Generate an exam into `exams/`.
-2. Complete answers in the exam file or send answers in chat.
-3. Grade with the answer key/rubric.
-4. Update `docs/user-knowledge-base.md`.
+1. Tạo đề vào `exams/`.
+2. Làm bài trong file đề hoặc gửi đáp án trong chat.
+3. Chấm bài bằng đáp án/rubric.
+4. Cập nhật `docs/user-knowledge-base.md`.
 """
 
 
@@ -179,49 +179,49 @@ def exam_stub(title: str, code: str, scope: str, count: int, minutes: int, now: 
     created = now.strftime("%Y-%m-%d %H:%M")
     return f"""# {title}
 
-Ma de: {code}
-Ngay tao: {created}
-Pham vi: {scope}
-So cau: {count}
-Thoi gian goi y: {minutes} phut
-Tong diem: 100
+Mã đề: {code}
+Ngày tạo: {created}
+Phạm vi: {scope}
+Số câu: {count}
+Thời gian gợi ý: {minutes} phút
+Tổng điểm: 100
 
-## Phan bo
+## Phân bổ
 
-| Phan | So cau | Diem | Chu de |
+| Phần | Số câu | Điểm | Chủ đề |
 | --- | ---: | ---: | --- |
 | Common | TBD | TBD | TBD |
 | Business | TBD | TBD | TBD |
 | Infrastructure | TBD | TBD | TBD |
 | App Build | TBD | TBD | TBD |
 
-## Huong dan
+## Hướng dẫn
 
-- Tra loi MCQ bang A/B/C/D.
-- Multi-select ghi tat ca lua chon, vi du: A,C.
-- Fill-in-blank ghi dap an ngan.
-- Scenario/code tra loi ngan gon, dung trong tam.
+- Trả lời MCQ bằng A/B/C/D.
+- Multi-select ghi tất cả lựa chọn, ví dụ: A,C.
+- Fill-in-blank ghi đáp án ngắn.
+- Scenario/code trả lời ngắn gọn, đúng trọng tâm.
 
-## Cau hoi
+## Câu hỏi
 
-<!-- Agent writes student-facing questions here. Do not include answer key in this file. -->
+<!-- Agent ghi câu hỏi dành cho người học tại đây. Không đưa đáp án vào file này. -->
 """
 
 
 def answer_stub(title: str, code: str, scope: str, now: datetime) -> str:
     created = now.strftime("%Y-%m-%d %H:%M")
-    return f"""# Dap an va rubric - {title}
+    return f"""# Đáp án và rubric - {title}
 
-Ma de: {code}
-Ngay tao: {created}
-Pham vi: {scope}
+Mã đề: {code}
+Ngày tạo: {created}
+Phạm vi: {scope}
 
-| Cau | Dap an | Diem | Topic | Difficulty | Giai thich ngan |
+| Câu | Đáp án | Điểm | Topic | Difficulty | Giải thích ngắn |
 | ---: | --- | ---: | --- | --- | --- |
 
-## Rubric tu luan/code
+## Rubric tự luận/code
 
-<!-- Agent writes answer key, rationales, and rubrics here. -->
+<!-- Agent ghi đáp án, giải thích và rubric tại đây. -->
 """
 
 
@@ -237,7 +237,7 @@ def new_exam(args: argparse.Namespace) -> None:
     slug = slugify(args.slug or args.scope)
     code = args.code or f"{scope}-{stamp}"
     minutes = args.minutes or max(20, round(args.count * 3))
-    title = args.title or f"De on tap AI - {args.scope}"
+    title = args.title or f"Đề ôn tập AI - {args.scope}"
 
     exam_dir = root / scope_dir(scope)
     answer_dir = exam_dir / "answers"
@@ -280,7 +280,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     exam_parser = subparsers.add_parser("new-exam", help="create exam and answer markdown files")
     exam_parser.add_argument("--root", required=True, help="study repository path")
-    exam_parser.add_argument("--title", default="De on tap AI", help="exam title")
+    exam_parser.add_argument("--title", default="Đề ôn tập AI", help="exam title")
     exam_parser.add_argument("--scope", default="mixed", help="common, business, infrastructure, app-build, mixed, mock")
     exam_parser.add_argument("--count", type=int, default=20, help="question count")
     exam_parser.add_argument("--minutes", type=int, default=None, help="suggested duration")
