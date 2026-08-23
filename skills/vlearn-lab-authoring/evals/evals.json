@@ -23,6 +23,15 @@
       ]
     },
     {
+      "name": "confirmed_day_is_written_for_studio",
+      "prompt": "Viết ngay Lab cá nhân Day 21. Brief, repo, deliverable và cách kiểm tra đã chốt.",
+      "assertions": [
+        "Uses YAML front matter with the exact canonical value day: \"D21\"",
+        "Keeps the confirmed Day consistent with the title and learner-facing body",
+        "Does not invent a different Day or omit the known Day from YAML"
+      ]
+    },
+    {
       "name": "team_lab_needs_submission_policy",
       "prompt": "Tạo Lab nhóm Day 05 với repo đã gửi, mỗi nhóm 3 người.",
       "assertions": [

@@ -55,6 +55,9 @@ policies, credentials, or facts that the course owner did not provide.
   required. A source without front matter needs one `#` title and at least one
   `##` heading. Validate the YAML and its body-level consistency using the
   Markdown contract before returning it.
+- When the confirmed brief names a Day, add `day: "DNN"` (for example,
+  `day: "D21"`) to the YAML so VLearn Studio can select that Day. Add an `id`
+  only when the source or owner confirms a stable slug.
 - Treat each `##` as a learner section. Give every section a visible outcome,
   2–5 concrete actions, and one checkable completion signal.
 - Use `hint-python`, `hint-bash`, or `hint-powershell` only for a sample that

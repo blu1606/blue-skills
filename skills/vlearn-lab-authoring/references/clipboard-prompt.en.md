@@ -80,6 +80,8 @@ Use only confirmed facts. When known, use this YAML and omit unknown fields:
 
 ```yaml
 ---
+id: "day03-track01-example" # only when the source or owner confirms the slug
+day: "D03" # required when the brief confirms a Day; use canonical DNN
 title: "A Lab name tied to a verifiable artifact or skill"
 description: "One sentence stating what the learner can create or prove."
 outcomes:
@@ -95,6 +97,8 @@ workMode: "individual" # or "team"
 ---
 ```
 
+`id` and `day` are Studio source metadata, not learner-visible blocks. When a
+brief confirms a Day, include `day: "DNN"`, for example `day: "D21"`.
 `description`, `outcomes`, `prerequisites`, `requiredTools`, and `commonErrors`
 are learner-visible. The importer adds a submission form by default: use the
 unquoted boolean `requiresSubmission: false` only for a Lab with no artifact.
@@ -103,7 +107,8 @@ submission policy.
 
 Before returning: YAML is a valid mapping; lists are YAML lists;
 `requiresSubmission` is a boolean; `workMode` is only `individual` or `team`;
-there are no unknown, empty, duplicate, placeholder, or inferred values; and
+when the Day is known, `day` is the matching canonical `DNN` value; there are
+no unknown, empty, duplicate, placeholder, or inferred values; and
 metadata agrees with the body and submission policy.
 
 GATE 3 — WRITE THE LEARNING FLOW

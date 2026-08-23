@@ -79,6 +79,8 @@ Chỉ dùng dữ kiện đã chốt. Khi biết chắc, dùng YAML sau và bỏ 
 
 ```yaml
 ---
+id: "day03-track01-example" # chỉ khi source/owner đã chốt slug
+day: "D03" # bắt buộc khi brief đã xác nhận Day, đúng dạng DNN
 title: "Tên Lab gắn với artifact hoặc kỹ năng kiểm chứng được"
 description: "Một câu nêu kết quả học viên tạo hoặc chứng minh được."
 outcomes:
@@ -94,15 +96,18 @@ workMode: "individual" # hoặc "team"
 ---
 ```
 
-`description`, `outcomes`, `prerequisites`, `requiredTools`, `commonErrors`
-là phần học viên thấy. Importer mặc định thêm form nộp bài: chỉ đặt
+`id` và `day` là metadata để Studio nhận đúng nguồn; chúng không thành block
+cho học viên. Khi brief đã xác nhận Day, bắt buộc có `day: "DNN"`, ví dụ
+`day: "D21"`. `description`, `outcomes`, `prerequisites`, `requiredTools`,
+`commonErrors` là phần học viên thấy. Importer mặc định thêm form nộp bài: chỉ đặt
 `requiresSubmission: false` (boolean không quote) khi Lab không có artifact
 phải nộp. Với `workMode: "team"`, nội dung vẫn phải nêu số người, vai trò và
 chính sách nộp đã được xác nhận.
 
 Trước khi trả: YAML phải là mapping hợp lệ; list là YAML list;
 `requiresSubmission` là boolean; `workMode` chỉ là `individual` hoặc `team`;
-không có key lạ, giá trị rỗng/trùng/placeholder/suy diễn; metadata khớp nội
+`day` (nếu Day đã được chốt) là đúng dạng `DNN` và khớp brief; không có key lạ,
+giá trị rỗng/trùng/placeholder/suy diễn; metadata khớp nội
 dung và chính sách nộp.
 
 CỔNG 3 — VIẾT LUỒNG HỌC

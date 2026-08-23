@@ -14,6 +14,8 @@ them with generic text.
 
 ```yaml
 ---
+id: "day03-track01-example" # optional stable source slug
+day: "D03" # required when the confirmed brief names a Day
 title: "Lab 03 — ..."
 description: "Một câu nêu artifact hoặc kỹ năng kiểm chứng được."
 outcomes:
@@ -29,6 +31,9 @@ workMode: "individual" # hoặc team
 ---
 ```
 
+`id` and `day` identify the Markdown source in Studio; they do not become
+learner-facing reading blocks. When the confirmed brief names a Day, `day` is
+required and must use the canonical `DNN` form (for example, `D21`).
 `description`, `outcomes`, `prerequisites`, `requiredTools`, and `commonErrors`
 become learner-facing reading blocks. `requiresSubmission` must be `false`
 only when no artifact is submitted. The importer creates a submission form by
@@ -42,9 +47,11 @@ Before returning a source with front matter, verify all of the following:
 
 - Opening and closing `---` delimiters are on their own lines, and the content
   is a YAML mapping.
-- Use only the supported keys shown above. Omit unknown facts; do not add
-  `duration`, `difficulty`, `author`, tags, or custom keys until importer
-  support is confirmed.
+- Use only the supported keys shown above. `day`, when present, is an exact
+  `DNN` value that matches the confirmed brief. `id`, when present, is a
+  confirmed stable source slug. Omit unknown facts; do not add `duration`,
+  `difficulty`, `author`, tags, or custom keys until importer support is
+  confirmed.
 - `outcomes`, `prerequisites`, `requiredTools`, and `commonErrors` are YAML
   lists when present. `requiresSubmission` is a boolean and `workMode` is
   exactly `individual` or `team`.
