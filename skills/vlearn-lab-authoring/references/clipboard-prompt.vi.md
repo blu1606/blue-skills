@@ -132,6 +132,16 @@ CỔNG 3 — VIẾT LUỒNG HỌC
   nó ảnh hưởng đến quyết định; sau lệnh nêu dấu hiệu cần thấy rồi nối sang bước
   kế tiếp. Một đoạn không có lệnh vẫn hợp lệ nếu nó là cầu nối cần thiết, có căn
   cứ từ brief/source và giúp thao tác tiếp theo dễ hiểu.
+- Đếm prose dành cho học viên, không tính YAML, heading, URL, code, bảng,
+  checklist hay reflect. Section chuẩn bị cần 180–300 từ; section kỹ thuật hoặc
+  quyết định chính cần 500–1.000 từ; section nộp bài cần 220–360 từ. Với section
+  kỹ thuật, đi theo: bản chất/câu hỏi (120–200 từ) → giải nghĩa từ khóa cần cho
+  quyết định (100–160 từ khi có) → lựa chọn thiết kế (100–180 từ khi có) → 2–5
+  thao tác có lý do → checkpoint và cầu nối (80–160 từ). Khi có hàm, file, cấu
+  hình hoặc phương án chính, giải thích trách nhiệm, input/output hoặc tác động,
+  lợi ích, hạn chế và trade-off. Chỉ nói vì sao chọn A thay B nếu brief/source
+  có bằng chứng; nếu không, giữ A như contract và không bịa rationale. Không
+  thêm lý thuyết, recap hay câu dẫn chung chung để đủ chữ.
 
 CỔNG 4 — RÀ CHẤT LƯỢNG
 

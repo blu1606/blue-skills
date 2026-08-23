@@ -98,6 +98,28 @@
       ]
     },
     {
+      "name": "substantive_steps_explain_before_acting",
+      "prompt": "Brief đã chốt: Lab Day 21 có bước kiểm tra loss mask, đóng băng baseline, train LoRA và đánh giá bốn nhóm. Viết một section kỹ thuật cho người mới.",
+      "assertions": [
+        "Uses 500–1,000 words of learner-facing prose for the substantive technical section, excluding code and tables",
+        "Explains the underlying question before the ordered actions",
+        "Breaks down any term needed to make the decision in the Lab context",
+        "Gives a source-backed checkpoint and explains why it enables the next step",
+        "Does not pad the section with repeated goals, generic theory, or invented details"
+      ]
+    },
+    {
+      "name": "technical_step_explains_design_tradeoffs_without_inventing",
+      "prompt": "Brief đã chốt: hàm compare_models nhận một prompt, gọi hai model và trả về response, latency cùng ước tính chi phí. Source chỉ yêu cầu giữ đúng năm key trong dict; không giải thích vì sao công thức chi phí được chọn. Viết section kỹ thuật cho người mới.",
+      "assertions": [
+        "Uses 500–1,000 words of learner-facing prose excluding code and tables",
+        "Explains the function responsibility, inputs, outputs, and why preserving the dictionary contract matters",
+        "Explains source-backed benefits and limits of the comparison",
+        "Does not invent a rationale for the supplied cost formula or claim one model is universally better",
+        "Connects a checkable result to the next learner decision"
+      ]
+    },
+    {
       "name": "github_repo_is_read_before_work_mode_confirmation",
       "prompt": "Dùng repo https://github.com/VinUni-AI20k/Day21-Track3-Finetuning-Lab để soạn Lab.",
       "assertions": [

@@ -5,6 +5,9 @@ giống danh sách lệnh. Mục tiêu là giúp người học hiểu việc m�
 hoàn thành đúng Lab; không thêm câu chuyện, lý do kỹ thuật, hay yêu cầu không
 có trong nguồn và brief đã xác nhận.
 
+Đọc cùng `step-depth-contract.md` khi viết hoặc review một Lab mới. Hướng dẫn
+này quyết định nhịp câu; contract quyết định độ sâu tối thiểu của từng section.
+
 ## Viết theo đường đi của người học
 
 - Mở một phần bằng điểm vào cụ thể mà nguồn đã nêu: thao tác họ sắp làm, lỗi

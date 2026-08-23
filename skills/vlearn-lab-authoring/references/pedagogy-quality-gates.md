@@ -63,6 +63,9 @@ Pass every item before returning a Lab:
 - The opening states what learners will produce and what they need first.
 - Each `##` section has one outcome, 2–5 actions in execution order, and one
   signal a novice can use to know whether it worked.
+- Each substantive technical or decision section meets the applicable word
+  range and explanation → term → design-choice → action → checkpoint structure
+  in `step-depth-contract.md`; short setup sections use its smaller range.
 - Steps name where to act when relevant: file, terminal, service, or UI.
 - Commands are copyable and explain expected output or failure symptom.
 - Prerequisites are not hidden halfway through the task.

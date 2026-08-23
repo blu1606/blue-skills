@@ -135,6 +135,17 @@ GATE 3 — WRITE THE LEARNING FLOW
   source-backed observation and bridge to the next step. A paragraph without a
   command is valid when it is a necessary, source-grounded bridge that makes
   the next action intelligible.
+- Count learner-facing prose only, excluding YAML, headings, URLs, code,
+  tables, checklists, and reflection blocks. Preparation sections need
+  180–300 words; substantive technical or decision sections need 500–1,000;
+  submission sections need 220–360. For a technical section, use: underlying
+  question (120–200 words) → term breakdown when needed (100–160) →
+  design-choice reasoning when needed (100–180) → 2–5 reasoned actions →
+  checkpoint and bridge (80–160). For a central function, file, configuration,
+  or option, explain responsibility, input/output or effect, benefits,
+  limitations, and source-backed trade-offs. Explain why A beats B only when
+  the brief/source supports it; otherwise preserve A as a contract and do not
+  invent rationale. Never pad with generic theory, recaps, or empty transitions.
 
 GATE 4 — REVIEW QUALITY
 

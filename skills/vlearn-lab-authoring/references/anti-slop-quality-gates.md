@@ -31,6 +31,10 @@ the action and acceptance criterion that make the claim meaningful.
 
 - Do not repeat the same goal in the introduction, each section, and a closing
   recap.
+- Meet the section-depth contract with source-backed explanation, term
+  breakdown, design trade-offs, action rationale, and checkpoint
+  interpretation—not repeated summaries, generic theory, imagined rationale,
+  or decorative transitions.
 - Do not add sections, learning outcomes, warnings, diagrams, or reflection
   prompts just to make the Lab look substantial.
 - Use one direct verb per action. Break long, multi-action sentences.

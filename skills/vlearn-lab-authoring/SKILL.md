@@ -37,9 +37,10 @@ policies, credentials, or facts that the course owner did not provide.
 6. When the brief is confirmed, return the five-line `Brief đã chốt` /
    `Confirmed brief`, then continue to draft. Skip a redundant confirmation only
    when the user explicitly supplied every material fact and asked to draft now.
-7. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
-   full diacritics unless another language is requested. Preserve supplied
-   wording for official names, URLs, commands, and rubric criteria.
+7. Read `references/markdown-contract.md` and
+   `references/step-depth-contract.md`. Write the Lab in Vietnamese with full
+   diacritics unless another language is requested. Preserve supplied wording
+   for official names, URLs, commands, and rubric criteria.
 8. Read `references/pedagogy-quality-gates.md` for a progressive hint or
    learner-flow review when the request creates or materially revises a Lab.
 9. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
@@ -62,6 +63,10 @@ policies, credentials, or facts that the course owner did not provide.
   only when the source or owner confirms a stable slug.
 - Treat each `##` as a learner section. Give every section a visible outcome,
   2–5 concrete actions, and one checkable completion signal.
+- Apply `step-depth-contract.md` to every substantive section: explain the
+  underlying question, terms, and source-backed design choices before the
+  actions, then interpret the checkpoint. Do not meet its word range by adding
+  unsourced theory, imagined trade-offs, or filler.
 - Use `hint-python`, `hint-bash`, or `hint-powershell` only for a sample that
   matches the supplied starter and test, after a meaningful learner attempt.
 - State submission exactly: what to submit, where, whether it is individual or
@@ -99,6 +104,8 @@ policies, credentials, or facts that the course owner did not provide.
 - `references/reader-first-prose.md` — conversational, explain-before-action
   prose and readability review for Labs. Read before drafting or materially
   revising learner-facing prose.
+- `references/step-depth-contract.md` — word ranges and required explanatory
+  structure for each substantive learner section. Read before drafting.
 - `references/clipboard-prompt.vi.md` — standalone Vietnamese prompt used by
   VLearn Studio's Copy skill action; keep it aligned when a requirement changes.
 - `evals/evals.json` — regression prompts for skill review.
