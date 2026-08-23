@@ -15,8 +15,10 @@ Ask a focused question or use `TODO — cần xác nhận` only with owner appro
 
 ## Specificity gate
 
-For each paragraph, identify one learner action, verification, or decision. If
-none exists, delete it or replace it with a concrete instruction. Prefer:
+For each paragraph, identify one learner action, verification, decision, or
+conceptual bridge needed to make the next action intelligible. If none exists,
+delete it or replace it with a concrete, source-faithful explanation. Do not
+delete a short orientation paragraph merely because it has no command. Prefer:
 
 - `Chạy pytest tests/test_api.py -v và kiểm tra 3 passed.`
 - `Mở template.py, thay TODO trong hàm parse_input.`
@@ -53,7 +55,7 @@ apply a phrase blacklist. Report only observable issues in this form:
 `<vị trí> → <vấn đề thấy được> → <sửa tối thiểu bám nguồn>`
 
 Check whether each section advances the confirmed artifact, each paragraph
-contains an action, verification, or decision, and decorative headings,
+contains an action, verification, decision, or necessary conceptual bridge, and decorative headings,
 recaps, warnings, reflections, or “why it matters” text actually affect
 completion. Remove only the text that fails that test. Preserve useful lists,
 tables, short explanations, and the learner's supplied terminology.

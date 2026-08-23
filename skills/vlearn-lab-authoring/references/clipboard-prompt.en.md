@@ -128,12 +128,20 @@ GATE 3 — WRITE THE LEARNING FLOW
   raw HTML, JSX, custom CSS, nested directives, or hidden answers.
 - For a submission, state artifact, destination, individual/team policy, and
   how it is checked.
+- Write as if guiding a newcomer through the Lab, not as a chopped-up checklist:
+  before a cluster of actions, use 1–3 complete sentences to explain where the
+  learner is, why this step matters to the final outcome, and what to notice.
+  Explain a term at its first decision point; after a command, state the
+  source-backed observation and bridge to the next step. A paragraph without a
+  command is valid when it is a necessary, source-grounded bridge that makes
+  the next action intelligible.
 
 GATE 4 — REVIEW QUALITY
 
-Delete or rewrite prose that does not help a learner act, verify, or understand
-one decision. Use concrete verbs and source-backed file names, commands, and
-outputs. Remove vague words such as “powerful”, “comprehensive”, “seamless”,
+Delete or rewrite prose that does not help a learner act, verify, understand
+one decision, or understand a necessary bridge before an action. Use concrete
+verbs and source-backed file names, commands, and outputs. Remove vague words
+such as “powerful”, “comprehensive”, “seamless”,
 “robust”, or “best practice” unless an action and criterion make them specific.
 
 Do not repeat the outcome or add sections, warnings, diagrams, reflection,

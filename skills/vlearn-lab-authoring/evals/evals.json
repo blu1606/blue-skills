@@ -88,6 +88,16 @@
       ]
     },
     {
+      "name": "reader_first_prose_is_not_a_chopped_checklist",
+      "prompt": "Brief đã chốt: người mới cần mở template.py, chạy pytest tests -v, sửa TODO và nộp solution.zip. Hãy viết phần hướng dẫn Lab.",
+      "assertions": [
+        "Introduces each action cluster with a short, complete explanation of why it matters to the confirmed outcome",
+        "Explains a new term only at the decision point where the learner needs it",
+        "States a source-backed observation after the command and uses it to connect to the next action",
+        "Does not turn every line into an imperative fragment or invent a story, output, or technical rationale"
+      ]
+    },
+    {
       "name": "github_repo_is_read_before_work_mode_confirmation",
       "prompt": "Dùng repo https://github.com/VinUni-AI20k/Day21-Track3-Finetuning-Lab để soạn Lab.",
       "assertions": [

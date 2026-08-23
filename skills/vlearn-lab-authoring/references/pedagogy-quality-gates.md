@@ -90,9 +90,10 @@ source-grounded way to write it.
 
 When the owner supplies an approved course sample or voice guide, extract only
 the style facts that help learners: language/register, learner address, terms
-to preserve, sentence density, preferred action verbs, error wording, and
+to preserve, sentence density, preferred action verbs, explanation rhythm, and
 prohibited promotional language. Apply the profile only to explanatory prose.
-Never rewrite commands, URLs, official names, rubric text, or direct quotes.
+Use `reader-first-prose.md` to turn those facts into a readable walkthrough;
+never rewrite commands, URLs, official names, rubric text, or direct quotes.
 
 Without an approved sample, use Vietnamese with full diacritics, short
 action-first sentences, direct active verbs, and a calm respectful tone. Do

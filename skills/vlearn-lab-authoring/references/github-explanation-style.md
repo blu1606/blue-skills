@@ -36,6 +36,10 @@ view: “Trước hết, hãy … để …”, “Khi thấy …, bạn biết 
 bạn có thể …”. Do not force these exact phrases or add a transition where the
 connection is already clear.
 
+For a fuller prose pattern and review gate, apply
+`reader-first-prose.md`. That guide is for learner-facing explanation, not a
+license to invent a story, analogy, or technical claim absent from the source.
+
 ## Keep the explanation useful
 
 - Explain a term at its first decision point when a novice needs it to act;

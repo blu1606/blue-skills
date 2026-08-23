@@ -126,11 +126,18 @@ CỔNG 3 — VIẾT LUỒNG HỌC
   thường, `hint-*` và `:::reflect` khi cần. Không dùng raw HTML, JSX, custom
   CSS, directive lồng nhau hoặc đáp án ẩn.
 - Nếu có nộp bài, nói rõ artifact, nơi nộp, cá nhân/nhóm và cách kiểm tra.
+- Viết như đang dẫn một người mới đi qua bài, không như checklist bị chặt vụn:
+  trước mỗi cụm thao tác, dùng 1–3 câu đầy đủ để nói họ đang ở đâu, vì sao bước
+  này cần cho kết quả cuối, và cần để ý điều gì. Giải thích thuật ngữ ở lần đầu
+  nó ảnh hưởng đến quyết định; sau lệnh nêu dấu hiệu cần thấy rồi nối sang bước
+  kế tiếp. Một đoạn không có lệnh vẫn hợp lệ nếu nó là cầu nối cần thiết, có căn
+  cứ từ brief/source và giúp thao tác tiếp theo dễ hiểu.
 
 CỔNG 4 — RÀ CHẤT LƯỢNG
 
-Xóa hoặc viết lại câu không giúp học viên thao tác, kiểm tra hoặc hiểu một
-quyết định. Dùng động từ cụ thể, tên file/lệnh/output có nguồn. Bỏ từ chung
+Xóa hoặc viết lại câu không giúp học viên thao tác, kiểm tra, hiểu một quyết
+định hoặc hiểu cầu nối cần thiết trước thao tác. Dùng động từ cụ thể, tên
+file/lệnh/output có nguồn. Bỏ từ chung
 chung như “khám phá”, “mạnh mẽ”, “toàn diện”, “dễ dàng”, “seamless”, “robust”
 hoặc “best practice” nếu không kèm hành động và tiêu chí cụ thể.
 

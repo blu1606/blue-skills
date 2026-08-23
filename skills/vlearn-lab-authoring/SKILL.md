@@ -2,7 +2,6 @@
 name: vlearn-lab-authoring
 description: Author VLearn Markdown Labs from a confirmed brief. Use whenever a user asks to create, rewrite, review, import, or publish a Lab, Codelab, assignment, starter repo exercise, or hint-python lesson.
 license: MIT
-version: 1.0.0
 ---
 
 # VLearn Lab Authoring
@@ -21,7 +20,8 @@ policies, credentials, or facts that the course owner did not provide.
    default-branch `README.md` as the initial source rather than opening with a
    questionnaire. Do not clone a repository or ask for a token.
 2. When a GitHub source was retrieved, read
-   `references/github-explanation-style.md` before drafting. Build the Lab's
+   `references/github-explanation-style.md` and
+   `references/reader-first-prose.md` before drafting. Build the Lab's
    explanation from that source's real learning path; do not turn its commands
    into terse, disconnected bullets.
 3. Read `references/pedagogy-quality-gates.md`. Extract a source-grounded
@@ -43,8 +43,10 @@ policies, credentials, or facts that the course owner did not provide.
 8. Read `references/pedagogy-quality-gates.md` for a progressive hint or
    learner-flow review when the request creates or materially revises a Lab.
 9. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
-   specificity, and review-mode gates against the draft. Revise failures
-   before returning Markdown. Do not claim to detect whether text is AI-made.
+   specificity, and review-mode gates against the draft without stripping the
+   reader-first explanations required by `references/reader-first-prose.md`.
+   Revise failures before returning Markdown. Do not claim to detect whether
+   text is AI-made.
 10. Return one complete Markdown document, then a short validation note listing
    the confirmed source link, work mode, deliverable, and any `TODO` that the
    user explicitly accepted.
@@ -94,6 +96,9 @@ policies, credentials, or facts that the course owner did not provide.
 - `references/github-explanation-style.md` — human, connected explanation of a
   retrieved GitHub Lab without inventing rationale or details. Read after a
   GitHub source is retrieved.
+- `references/reader-first-prose.md` — conversational, explain-before-action
+  prose and readability review for Labs. Read before drafting or materially
+  revising learner-facing prose.
 - `references/clipboard-prompt.vi.md` — standalone Vietnamese prompt used by
   VLearn Studio's Copy skill action; keep it aligned when a requirement changes.
 - `evals/evals.json` — regression prompts for skill review.
