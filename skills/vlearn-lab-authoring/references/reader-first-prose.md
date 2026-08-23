@@ -40,6 +40,40 @@ Không phải bước nào cũng cần đủ ba câu. Một thao tác hiển nhi
 một bước có rủi ro hoặc khái niệm mới cần phần giải thích và dấu hiệu hoàn
 thành rõ hơn.
 
+## Bố cục để người học quét trước, đọc sâu sau
+
+Mỗi section `##` là một chặng đọc. Đừng biến chặng đó thành một khối prose dài
+dù nội dung có chính xác. Khi section có khái niệm, quyết định hoặc evidence
+quan trọng, dùng nhịp sau nếu nguồn cung cấp đủ dữ kiện:
+
+1. Mở bằng `:::goal{title="..."}` ngắn, nêu câu hỏi hoặc đầu ra của chặng.
+2. Tách các ý lớn bằng `###` có tên theo câu hỏi người học đang có, chẳng hạn
+   `### Vậy LoRA là gì?`, `### Lợi ích và giới hạn`, hoặc
+   `### Ứng với code trong repository`.
+3. Dùng `:::decision`, `:::caution` hoặc `:::checkpoint` cho một lựa chọn,
+   rủi ro, hay tín hiệu pass thật sự cần nổi bật. Dùng glossary inline ở lần
+   đầu một thuật ngữ quyết định hành động.
+4. Dùng bảng cho so sánh thật, bullet cho các ý độc lập, và code fence cho
+   lệnh/cấu hình cần sao chép chính xác. Kết thúc bằng checkpoint và một cầu
+   nối có thật sang bước tiếp theo.
+
+Các block là **nhịp đọc**, không phải trang trí. Không cần nhồi đủ mọi loại
+block vào một section. Nếu một đoạn ngắn, rõ và không có lựa chọn/rủi ro cần
+phân biệt, prose thường tốt hơn một card. Không tạo raw HTML `<details>` hay
+dropdown giả: reader không render raw HTML trong Markdown.
+
+## Code mẫu là phương án, không phải nghĩa vụ
+
+Chỉ thêm code mẫu hoặc `hint-*` khi người học cần nhìn/copy một mẩu mã hay
+lệnh để thực hiện bước kế tiếp, và mẫu đó bám starter, test hoặc nguồn đã
+xác nhận. Một đoạn giải thích, bảng artifact, checklist, hoặc lệnh có sẵn
+trong repository thường đủ tốt hơn khi mục tiêu là hiểu lựa chọn.
+
+Không thêm code mẫu để làm Lab trông kỹ thuật hơn, để lấp khoảng trống giữa
+các heading, hoặc khi mẫu không thay đổi được hành động hay cách kiểm tra của
+người học. Nếu không có mẫu hữu ích, hãy nói rõ điều cần quan sát và để người
+học thao tác trên code/repository thật.
+
 ## Mẫu sửa câu máy móc
 
 Đây là mẫu minh hoạ cấu trúc, không phải dữ kiện để chép vào Lab.
@@ -75,6 +109,11 @@ Trước khi trả Lab, kiểm tra nhanh:
    tóm tắt lặp lại, không?
 6. Mọi tên riêng, lệnh, đường dẫn, đầu ra, quy tắc nộp bài và lý do kỹ thuật có
    bám nguồn hoặc brief đã xác nhận không?
+7. Các paragraph dài đã được tách theo câu hỏi, khái niệm, lựa chọn, thao tác
+   và evidence khi điều đó giúp quét nhanh hơn chưa?
+8. Mỗi callout, glossary, table, diagram hoặc code sample có giúp một quyết
+   định hoặc hành động cụ thể không — và code sample đã được bỏ đi khi không
+   có ích chưa?
 
 Nếu một câu trả lời là không, sửa ít nhất có thể. Với dữ kiện chưa có, hỏi một
 câu tập trung hoặc dùng `TODO — cần xác nhận` khi chủ sở hữu đã cho phép.

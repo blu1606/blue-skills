@@ -38,6 +38,10 @@ file/command/UI before asking the learner to use it; keep the “why” beside t
 action it justifies. Do not make every line a terse imperative or invent
 rationale, architecture, output, or context absent from the source. Ask or use
 an approved TODO when context is missing.
+When the owner provides a GitHub Lab link, preserve that exact link and place
+it in the opening/preparation flow before asking learners to install, clone, or
+run the repository. Do not replace it with an inferred mirror, branch, or
+setup URL.
 
 GATE 1 — DERIVE, THEN CONFIRM THE BRIEF
 
@@ -120,14 +124,28 @@ GATE 3 — WRITE THE LEARNING FLOW
   “Introduction”, “Content”, or “Conclusion”.
 - Put commands in fenced blocks with a grounded expected result or failure
   symptom. Use tables only when clearer than a list for comparison or triage.
-- Put `hint-python`, `hint-bash`, or `hint-powershell` after an attempt point:
-  checkpoint → source-grounded question/clue → small local hint. Do not reveal
-  a full answer unless the owner asks.
+- Give each technical section a scan-friendly rhythm: a short
+  `:::goal{title="..."}` for its question/outcome, `###` headings phrased as
+  learner questions (for example, “What is LoRA?”, “Benefits and limits”, or
+  “Where this appears in the repository”), then the action/evidence. Use
+  `:::decision`, `:::caution`, and `:::checkpoint` only for a real choice,
+  risk, or pass signal that deserves emphasis; use inline glossary terms at
+  the first decision point. Do not add blocks for decoration or fake a
+  dropdown with raw HTML.
+- Code samples and `hint-python`, `hint-bash`, or `hint-powershell` are
+  **optional**, not a required ingredient of every section. Use one after an
+  attempt point only when a small source/starter/test-grounded sample makes the
+  next action or verification easier; do not add code to make a Lab look more
+  technical or fill space. Do not reveal a full answer unless the owner asks.
 - Use headings, paragraphs, lists, checklists, blockquotes, images, tables,
-  ordinary code fences, `hint-*`, and `:::reflect` only when useful. Do not use
-  raw HTML, JSX, custom CSS, nested directives, or hidden answers.
+  ordinary code fences, `hint-*`, `:::goal`, `:::decision`, `:::caution`,
+  `:::checkpoint`, and `:::reflect` only when useful. Do not use raw HTML,
+  JSX, custom CSS, nested directives, or hidden answers.
 - For a submission, state artifact, destination, individual/team policy, and
-  how it is checked.
+  how it is checked. The required root-folder convention is
+  `KX-DAYXX-HoVaTen-MSSV` for individual work; team work uses
+  `KX-DAYXX-TenNhom` and must include a root `TEAMMATES.md` listing every
+  member's full name and MSSV. Never invent names or MSSVs.
 - Write as if guiding a newcomer through the Lab, not as a chopped-up checklist:
   before a cluster of actions, use 1–3 complete sentences to explain where the
   learner is, why this step matters to the final outcome, and what to notice.
@@ -166,6 +184,9 @@ the artifact/behaviour and pass signal in every section; every
 command/link/file/output/rubric/deadline is sourced or an approved TODO; they
 know what and where to submit and the work mode; Markdown has one `##` and has
 a leading `#` if it has no YAML.
+Long paragraphs are split with H3 headings, glossary terms, lists/tables, or
+callout cards when that improves scanning; every remaining code sample or hint
+has a real purpose for the next action or checkpoint.
 
 OUTPUT
 

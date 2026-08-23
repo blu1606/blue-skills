@@ -41,6 +41,25 @@
       ]
     },
     {
+      "name": "github_link_and_submission_folder_follow_owner_contract",
+      "prompt": "Viết ngay Lab Day 21 từ https://github.com/acme/finetuning-lab. Đây là bài nhóm, artifact và kênh nộp đã chốt.",
+      "assertions": [
+        "Places the exact owner-provided GitHub Lab link in the learner-facing opening or preparation flow before clone, install, or run instructions",
+        "Does not replace the supplied link with an inferred mirror, branch, or setup URL",
+        "Requires the root folder format KX-DAYXX-TenNhom and a root TEAMMATES.md that lists each member full name and MSSV",
+        "Does not invent team member names or MSSVs"
+      ]
+    },
+    {
+      "name": "individual_submission_folder_uses_owner_contract",
+      "prompt": "Viết ngay Lab cá nhân Day 07. Repo, artifact và cách kiểm tra đã chốt.",
+      "assertions": [
+        "Requires the root folder format KX-DAYXX-HoVaTen-MSSV in the learner-facing submission section",
+        "Keeps the individual work mode consistent in YAML and body",
+        "Does not add TEAMMATES.md to an individual submission"
+      ]
+    },
+    {
       "name": "submission_default_requires_explicit_opt_out",
       "prompt": "Viết Lab chỉ đọc tài liệu, không có artifact để nộp. Brief đã chốt.",
       "assertions": [
@@ -106,6 +125,26 @@
         "Breaks down any term needed to make the decision in the Lab context",
         "Gives a source-backed checkpoint and explains why it enables the next step",
         "Does not pad the section with repeated goals, generic theory, or invented details"
+      ]
+    },
+    {
+      "name": "technical_section_uses_scan_friendly_reader_structure",
+      "prompt": "Brief đã chốt: Lab Day 21 giải thích LoRA, lợi ích, giới hạn, matched_rank() và resolve_target_modules() trước khi chạy NB3. Viết section kỹ thuật cho người mới.",
+      "assertions": [
+        "Uses a short supported goal callout and H3 headings that separate the learner question, concept, benefits or limits, and repository connection",
+        "Uses glossary inline for a term whose definition affects the learner decision",
+        "Uses a supported decision, caution, or checkpoint callout only for a real source-grounded choice, risk, or verification signal",
+        "Uses a table or list only where it makes a comparison or independent facts easier to scan",
+        "Does not use raw HTML details/summary or fake a collapsible Markdown dropdown"
+      ]
+    },
+    {
+      "name": "code_sample_is_optional_and_must_help",
+      "prompt": "Brief đã chốt: Lab yêu cầu đọc results/verdict.json, results/autopsy.json và results/qualitative.json; source provides no starter code or command for this step. Viết phần hướng dẫn.",
+      "assertions": [
+        "Explains how the three artifacts relate to the learner decision using prose, headings, a table, list, or supported callout as useful",
+        "Does not invent a code sample, hint block, script, or command merely to make the section look technical",
+        "Keeps any code fence only when it has a source-grounded purpose for the next action or verification"
       ]
     },
     {

@@ -37,6 +37,9 @@ Giải thích thuật ngữ đúng tại điểm học viên cần ra quyết đ
 trước khi yêu cầu dùng nó; giữ phần “vì sao” cạnh hành động nó giải thích. Đừng
 biến mọi dòng thành khẩu lệnh ngắn hoặc thêm lý do/kiến trúc/output không có
 trong nguồn. Nếu nguồn thiếu ngữ cảnh, hỏi lại hoặc dùng TODO đã được duyệt.
+Khi người dùng đã đưa link GitHub bài Lab, giữ nguyên link đó và đặt nó trong
+phần mở đầu/chuẩn bị trước khi bảo học viên cài, clone hoặc chạy repo; không tự
+đổi sang mirror, branch hoặc link setup khác.
 
 CỔNG 1 — SUY RA RỒI XÁC NHẬN BRIEF
 
@@ -119,13 +122,27 @@ CỔNG 3 — VIẾT LUỒNG HỌC
   “Giới thiệu”, “Nội dung”, “Kết luận”.
 - Lệnh nằm trong code fence, có kết quả mong đợi hoặc triệu chứng lỗi có căn
   cứ. Bảng chỉ dùng khi làm rõ so sánh/triage hơn danh sách.
-- Chỉ dùng `hint-python`, `hint-bash`, `hint-powershell` sau khi học viên đã
-  có điểm tự thử: checkpoint → câu hỏi/clue bám nguồn → hint nhỏ cục bộ. Không
+- Mỗi section kỹ thuật nên có nhịp dễ quét: `:::goal{title="..."}` ngắn cho
+  câu hỏi/đầu ra, `###` theo câu hỏi người học đang có (ví dụ “Vậy LoRA là
+  gì?”, “Lợi ích và giới hạn”, “Ứng với code trong repository”), sau đó mới
+  đến thao tác/evidence. Dùng `:::decision`, `:::caution`, `:::checkpoint` cho
+  lựa chọn, rủi ro hoặc tín hiệu pass thật sự cần nổi bật; glossary inline ở
+  lần đầu thuật ngữ ảnh hưởng quyết định. Không nhồi block cho đẹp, không giả
+  dropdown bằng raw HTML.
+- Code mẫu và `hint-python`, `hint-bash`, `hint-powershell` là **tùy chọn**,
+  không phải thành phần bắt buộc của mỗi section. Chỉ dùng sau điểm tự thử khi
+  có mẫu nhỏ, bám nguồn/starter/test, thực sự giúp thao tác hoặc kiểm tra tiếp
+  theo; không thêm code để Lab trông kỹ thuật hay để lấp khoảng trống. Không
   lộ toàn bộ đáp án trừ khi chủ sở hữu yêu cầu.
 - Chỉ dùng heading, đoạn, list, checklist, blockquote, ảnh, bảng, code fence
-  thường, `hint-*` và `:::reflect` khi cần. Không dùng raw HTML, JSX, custom
-  CSS, directive lồng nhau hoặc đáp án ẩn.
+  thường, `hint-*`, `:::goal`, `:::decision`, `:::caution`, `:::checkpoint` và
+  `:::reflect` khi cần. Không dùng raw HTML, JSX, custom CSS, directive lồng
+  nhau hoặc đáp án ẩn.
 - Nếu có nộp bài, nói rõ artifact, nơi nộp, cá nhân/nhóm và cách kiểm tra.
+  Quy ước thư mục gốc bắt buộc: bài cá nhân là
+  `KX-DAYXX-HoVaTen-MSSV`; bài nhóm là `KX-DAYXX-TenNhom` và phải có
+  `TEAMMATES.md` ngay tại root, ghi họ tên và MSSV của từng thành viên. Chỉ
+  ghi tên/MSSV thật khi người dùng đã cung cấp; không bịa danh sách thành viên.
 - Viết như đang dẫn một người mới đi qua bài, không như checklist bị chặt vụn:
   trước mỗi cụm thao tác, dùng 1–3 câu đầy đủ để nói họ đang ở đâu, vì sao bước
   này cần cho kết quả cuối, và cần để ý điều gì. Giải thích thuật ngữ ở lần đầu
@@ -161,6 +178,9 @@ Trước khi trả, tự trả lời Có cho tất cả: người mới biết b
 artifact/hành vi và tín hiệu pass ở từng phần; mọi lệnh/link/file/output/rubric
 và deadline có nguồn hoặc TODO đã duyệt; họ biết nộp gì, ở đâu, cá nhân hay
 nhóm; Markdown có ít nhất một `##` và không có YAML thì có `#` đầu tài liệu.
+Các paragraph dài đã được tách bằng H3, glossary, list/bảng hoặc card khi điều
+đó giúp người học quét nhanh hơn; mọi code sample/hint còn lại đều có ích thật
+cho hành động hoặc checkpoint tiếp theo.
 
 ĐẦU RA
 

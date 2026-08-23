@@ -37,10 +37,11 @@ policies, credentials, or facts that the course owner did not provide.
 6. When the brief is confirmed, return the five-line `Brief đã chốt` /
    `Confirmed brief`, then continue to draft. Skip a redundant confirmation only
    when the user explicitly supplied every material fact and asked to draft now.
-7. Read `references/markdown-contract.md` and
-   `references/step-depth-contract.md`. Write the Lab in Vietnamese with full
-   diacritics unless another language is requested. Preserve supplied wording
-   for official names, URLs, commands, and rubric criteria.
+7. Read `references/markdown-contract.md`,
+   `references/reader-blocks.md`, and `references/step-depth-contract.md`.
+   Write the Lab in Vietnamese with full diacritics unless another language is
+   requested. Preserve supplied wording for official names, URLs, commands,
+   and rubric criteria.
 8. Read `references/pedagogy-quality-gates.md` for a progressive hint or
    learner-flow review when the request creates or materially revises a Lab.
 9. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
@@ -63,16 +64,31 @@ policies, credentials, or facts that the course owner did not provide.
   only when the source or owner confirms a stable slug.
 - Treat each `##` as a learner section. Give every section a visible outcome,
   2–5 concrete actions, and one checkable completion signal.
+- Give every substantive section a scan-friendly rhythm: a short visible
+  outcome, `###` subheadings phrased as the learner's next question, and only
+  the supported callout/table/list constructs that make a concept, choice,
+  risk, or evidence easier to distinguish. Do not imitate a dropdown with raw
+  HTML; the Markdown reader does not render it.
 - Apply `step-depth-contract.md` to every substantive section: explain the
   underlying question, terms, and source-backed design choices before the
   actions, then interpret the checkpoint. Do not meet its word range by adding
   unsourced theory, imagined trade-offs, or filler.
-- Use `hint-python`, `hint-bash`, or `hint-powershell` only for a sample that
-  matches the supplied starter and test, after a meaningful learner attempt.
+- A code sample or `hint-python`/`hint-bash`/`hint-powershell` is optional,
+  never a required decoration. Include one only when it gives a learner a
+  useful, source-grounded action or small reference after a meaningful attempt;
+  omit it when prose, a command, an artifact, or a table explains the decision
+  better.
+- When the owner supplies a GitHub Lab link, preserve that exact link in the
+  learner-facing Lab and place it in the opening/preparation flow before a
+  learner is asked to install, clone, or run the repository. Do not replace it
+  with an inferred mirror or invented setup link.
 - State submission exactly: what to submit, where, whether it is individual or
-  team work, and how the result is checked. Do not enable a submission flow
-  without a real deliverable; explicitly set `requiresSubmission: false` when
-  a non-submission Lab must not show its default submission form.
+  team work, and how the result is checked. For a submitted individual Lab,
+  require the root-folder format `KX-DAYXX-HoVaTen-MSSV`. For a submitted team
+  Lab, require `KX-DAYXX-TenNhom` and a root `TEAMMATES.md` listing each
+  member's full name and MSSV. Do not enable a submission flow without a real
+  deliverable; explicitly set `requiresSubmission: false` when a non-submission
+  Lab must not show its default submission form.
 
 ## Safety and scope
 
@@ -93,6 +109,8 @@ policies, credentials, or facts that the course owner did not provide.
   reviewing a Lab.
 - `references/markdown-contract.md` — VLearn importer contract, YAML template,
   and metadata/body consistency rules. Read before producing Markdown.
+- `references/reader-blocks.md` — reader-supported callouts, glossary, tables,
+  diagrams, hints, and their purpose. Read before choosing presentation blocks.
 - `references/anti-slop-quality-gates.md` — specificity and source-faithfulness
   checks plus a minimal-revision review mode. Read before returning a draft.
 - `references/github-source-ingestion.md` — safe raw GitHub then `gh api`

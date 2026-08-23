@@ -22,7 +22,7 @@ def normalise(prompt: str) -> str:
 ```
 ~~~
 
-The importer separates each `hint-*` fence into an editor part and preserves its code. Use a hint for a small, inspectable reference solution after the learner has had a real chance to try the task; do not put the primary instruction or a long explanation inside it. `python`, `bash`, and `powershell` communicate the intended syntax and file extension.
+The importer separates each `hint-*` fence into an editor part and preserves its code. Use a hint for a small, inspectable reference solution after the learner has had a real chance to try the task; do not put the primary instruction or a long explanation inside it. `python`, `bash`, and `powershell` communicate the intended syntax and file extension. A hint is optional: omit it when there is no source-grounded sample that makes the learner's next action or check easier.
 
 ## `:::reflect`
 
@@ -33,6 +33,33 @@ What signal would tell you that this prompt is too broad?
 ~~~
 
 The importer turns this container into a discussion part. Use it for one answerable reflection that asks the learner to justify a choice, name evidence, or compare a result. Put the context and constraints in the preceding prose; do not use it as a decorative pause or a multi-question survey.
+
+## `:::goal`, `:::decision`, `:::caution`, and `:::checkpoint`
+
+~~~markdown
+:::goal{title="NB3 cần chứng minh gì?"}
+Nêu câu hỏi hoặc đầu ra của bước này.
+:::
+
+:::decision{title="Lợi ích và trade-off"}
+Nêu lựa chọn mà người học phải hiểu trước khi làm.
+:::
+
+:::caution{title="Điều không được suy ra"}
+Nêu một rủi ro hoặc giới hạn có thật từ nguồn.
+:::
+
+:::checkpoint{title="Có thể sang bước tiếp theo khi"}
+Nêu artifact hoặc trạng thái có thể kiểm tra.
+:::
+~~~
+
+The importer renders these containers as reader callout cards. Use `goal` for
+the current question/outcome, `decision` for a source-grounded choice or
+trade-off, `caution` for a concrete risk, and `checkpoint` for a verification
+signal. One or two cards in a substantial section are normally enough. They
+are always visible cards, not collapsible disclosure controls; do not fake a
+dropdown with raw HTML.
 
 ## Glossary link
 
@@ -70,4 +97,4 @@ uv run pytest tests/test_prompt.py
 ```
 ~~~
 
-The importer preserves an ordinary fence as a syntax-highlighted reader code block. Use it for commands, configuration, expected output, or a small example the learner needs to inspect or copy accurately. State what success looks like in the prose around it; use a `hint-*` fence instead when the code is a solution to attempt before revealing.
+The importer preserves an ordinary fence as a syntax-highlighted reader code block. Use it for commands, configuration, expected output, or a small example the learner needs to inspect or copy accurately. Do not add a code fence merely to make a section look technical. State what success looks like in the prose around it; use a `hint-*` fence instead when the code is a solution to attempt before revealing.

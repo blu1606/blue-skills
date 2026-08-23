@@ -79,14 +79,64 @@ Kết quả mong đợi: <output, file, UI state, hoặc test cụ thể>.
 ...
 ```
 
-Use fenced blocks for commands. Use `hint-python`, `hint-bash`, or
-`hint-powershell` only for a grounded sample solution after the learner has a
-meaningful attempt point. Use tables for comparison or troubleshooting, not a
-linear sequence. Use a submission section only when it names the artifact,
-destination, and verification.
+Use fenced blocks for commands. A `hint-python`, `hint-bash`, or
+`hint-powershell` sample is optional: use it only for a grounded, useful small
+reference after the learner has a meaningful attempt point; omit it when no
+sample improves the next action or check. Use tables for comparison or
+troubleshooting, not a linear sequence. Use a submission section only when it
+names the artifact, destination, and verification.
+
+## GitHub link and submission-folder contract
+
+When the owner provides a GitHub Lab link, show that exact link early in the
+opening or preparation section, before the learner is asked to install, clone,
+or run anything from it. The link must be copyable and must not be replaced by
+a guessed mirror, branch, or setup URL.
+
+For a Lab with a submission, write the matching root-folder requirement in the
+learner-facing submission section:
+
+```text
+# Cá nhân
+KX-DAYXX-HoVaTen-MSSV/
+
+# Nhóm
+KX-DAYXX-TenNhom/
+├── TEAMMATES.md
+└── ...artifact đã xác nhận...
+```
+
+`TEAMMATES.md` belongs at the root of a team submission and lists every member's
+full name and MSSV. Preserve `DAYXX` as the required naming pattern unless the
+owner supplies a more specific confirmed Day value. Do not invent member names,
+MSSVs, a GitHub link, or a submission destination.
 
 ## Portable constructs
 
 Use headings, paragraphs, bullets, checklists, blockquotes, images, tables,
-ordinary fenced code, `hint-*` fenced code, and `:::reflect` sparingly. Do not
-rely on raw HTML, JSX, custom CSS, nested directives, or hidden answer keys.
+ordinary fenced code, optional `hint-*` fenced code, and these content blocks
+sparingly:
+
+```md
+:::goal{title="Câu hỏi hoặc đầu ra của phần này"}
+...
+:::
+
+:::decision{title="Lựa chọn cần hiểu"}
+...
+:::
+
+:::caution{title="Rủi ro cần tránh"}
+...
+:::
+
+:::checkpoint{title="Dấu hiệu có thể sang bước tiếp theo"}
+...
+:::
+```
+
+Use a block only when its title and body identify a real concept, decision,
+risk, or verification signal. `:::reflect` remains for one answerable learner
+reflection. Do not rely on raw HTML, JSX, custom CSS, nested directives,
+hidden answer keys, or `<details>`/`<summary>` dropdowns: raw HTML is not
+rendered by the Markdown reader.
