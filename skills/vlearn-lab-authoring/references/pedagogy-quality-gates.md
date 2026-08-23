@@ -53,4 +53,27 @@ Pass every item before returning a Lab:
 
 Use a `hint-<language>` block only after the task it helps. The sample must be
 grounded in the starter repository and current tests. It must not reveal a
-solution before the learner has a meaningful attempt point.
+solution before the learner has a meaningful attempt point. Escalate help only
+as needed:
+
+1. State a learner-visible checkpoint or expected observation.
+2. Ask one diagnostic question or give one source-grounded clue.
+3. Give a small, local `hint-*` sample that unblocks that action.
+4. Do not give a complete solution or answer key unless the owner explicitly
+   asks for one.
+
+Each hint names the learner action it unblocks. Omit a hint when there is no
+source-grounded way to write it.
+
+## Writing style protocol
+
+When the owner supplies an approved course sample or voice guide, extract only
+the style facts that help learners: language/register, learner address, terms
+to preserve, sentence density, preferred action verbs, error wording, and
+prohibited promotional language. Apply the profile only to explanatory prose.
+Never rewrite commands, URLs, official names, rubric text, or direct quotes.
+
+Without an approved sample, use Vietnamese with full diacritics, short
+action-first sentences, direct active verbs, and a calm respectful tone. Do
+not use marketing formulas, urgency, power words, social proof, or a CTA as a
+substitute for an instructional step.

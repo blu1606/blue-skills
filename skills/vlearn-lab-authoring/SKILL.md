@@ -8,9 +8,9 @@ version: 1.0.0
 # VLearn Lab Authoring
 
 Create learner-ready VLearn Labs from real course facts. This skill handles
-brief discovery, Markdown structure, pedagogy gates, and anti-slop review. It
-does not invent repositories, assessments, policies, credentials, or facts
-that the course owner did not provide.
+brief discovery, VLearn Markdown structure, pedagogy gates, and a
+source-faithful quality review. It does not invent repositories, assessments,
+policies, credentials, or facts that the course owner did not provide.
 
 ## Required workflow
 
@@ -29,9 +29,12 @@ that the course owner did not provide.
 4. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
    full diacritics unless another language is requested. Preserve supplied
    wording for official names, URLs, commands, and rubric criteria.
-5. Read `references/anti-slop-quality-gates.md`. Run both gates against the
-   draft. Revise failures before returning Markdown.
-6. Return one complete Markdown document, then a short validation note listing
+5. Read `references/pedagogy-quality-gates.md` for a progressive hint or
+   learner-flow review when the request creates or materially revises a Lab.
+6. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
+   specificity, and review-mode gates against the draft. Revise failures
+   before returning Markdown. Do not claim to detect whether text is AI-made.
+7. Return one complete Markdown document, then a short validation note listing
    the confirmed source link, work mode, deliverable, and any `TODO` that the
    user explicitly accepted.
 
@@ -39,15 +42,16 @@ that the course owner did not provide.
 
 - Use YAML front matter only for known metadata. It is recommended, not
   required. A source without front matter needs one `#` title and at least one
-  `##` heading.
+  `##` heading. Validate the YAML and its body-level consistency using the
+  Markdown contract before returning it.
 - Treat each `##` as a learner section. Give every section a visible outcome,
   2–5 concrete actions, and one checkable completion signal.
 - Use `hint-python`, `hint-bash`, or `hint-powershell` only for a sample that
-  matches the supplied starter and test. Tell learners to try before checking
-  the hint.
+  matches the supplied starter and test, after a meaningful learner attempt.
 - State submission exactly: what to submit, where, whether it is individual or
   team work, and how the result is checked. Do not enable a submission flow
-  without a real deliverable.
+  without a real deliverable; explicitly set `requiresSubmission: false` when
+  a non-submission Lab must not show its default submission form.
 
 ## Safety and scope
 
@@ -64,9 +68,12 @@ that the course owner did not provide.
 ## Resources
 
 - `references/pedagogy-quality-gates.md` — brief questions and learning-flow
-  gates. Read before drafting or reviewing a Lab.
-- `references/markdown-contract.md` — VLearn importer contract and template.
-  Read before producing Markdown.
+  gates, progressive hints, and style-source protocol. Read before drafting or
+  reviewing a Lab.
+- `references/markdown-contract.md` — VLearn importer contract, YAML template,
+  and metadata/body consistency rules. Read before producing Markdown.
 - `references/anti-slop-quality-gates.md` — specificity and source-faithfulness
-  checks. Read before returning a draft.
+  checks plus a minimal-revision review mode. Read before returning a draft.
+- `references/clipboard-prompt.vi.md` — standalone Vietnamese prompt used by
+  VLearn Studio's Copy skill action; keep it aligned when a requirement changes.
 - `evals/evals.json` — regression prompts for skill review.

@@ -30,6 +30,33 @@
         "Asks for the deliverable and assessment facts",
         "Does not invent a grading rubric or submission destination"
       ]
+    },
+    {
+      "name": "submission_default_requires_explicit_opt_out",
+      "prompt": "Viết Lab chỉ đọc tài liệu, không có artifact để nộp. Brief đã chốt.",
+      "assertions": [
+        "Uses the unquoted YAML boolean requiresSubmission: false or explains why it is omitted",
+        "Does not describe a fictional submission destination",
+        "Keeps at least one ## section and a leading # title when no YAML is used"
+      ]
+    },
+    {
+      "name": "yaml_and_team_body_agree",
+      "prompt": "Viết ngay Lab nhóm Day 04. Nhóm 3 người: researcher, builder, reviewer; một link nộp cho mỗi nhóm; repo và rubric đã gửi.",
+      "assertions": [
+        "Uses only supported metadata keys and a valid workMode: team value when front matter is used",
+        "States the confirmed team size, roles, and one-link submission policy in the learner-facing body",
+        "Does not add unknown metadata, unsupported course facts, or invented tests"
+      ]
+    },
+    {
+      "name": "review_is_observable_and_source_faithful",
+      "prompt": "Review Lab này: 'Khám phá công cụ mạnh mẽ. ## Nội dung Hãy làm bài.' Không có repo, command, hoặc rubric được cung cấp.",
+      "assertions": [
+        "Reports location, visible issue, and a minimal source-faithful revision or focused question",
+        "Does not claim the text is AI-written",
+        "Does not fabricate commands, files, outcomes, or a submission policy"
+      ]
     }
   ]
 }

@@ -31,8 +31,27 @@ workMode: "individual" # hoặc team
 
 `description`, `outcomes`, `prerequisites`, `requiredTools`, and `commonErrors`
 become learner-facing reading blocks. `requiresSubmission` must be `false`
-only when no artifact is submitted. `workMode` documents the agreed work mode;
-the text must still state team size/roles and submission policy when relevant.
+only when no artifact is submitted. The importer creates a submission form by
+default, so suppress it only with the unquoted YAML boolean
+`requiresSubmission: false`. `workMode` documents the agreed work mode; the
+text must still state team size/roles and submission policy when relevant.
+
+## Metadata validation gate
+
+Before returning a source with front matter, verify all of the following:
+
+- Opening and closing `---` delimiters are on their own lines, and the content
+  is a YAML mapping.
+- Use only the supported keys shown above. Omit unknown facts; do not add
+  `duration`, `difficulty`, `author`, tags, or custom keys until importer
+  support is confirmed.
+- `outcomes`, `prerequisites`, `requiredTools`, and `commonErrors` are YAML
+  lists when present. `requiresSubmission` is a boolean and `workMode` is
+  exactly `individual` or `team`.
+- Do not leave empty, duplicate, placeholder, or inferred metadata values.
+- The body agrees with the metadata: its title and sections serve the stated
+  outcomes; `requiresSubmission: true` has an exact submission instruction;
+  a team Lab states confirmed roles, size, and submission policy.
 
 ## Section pattern
 
@@ -54,9 +73,10 @@ Kết quả mong đợi: <output, file, UI state, hoặc test cụ thể>.
 ```
 
 Use fenced blocks for commands. Use `hint-python`, `hint-bash`, or
-`hint-powershell` only for a grounded sample solution. Use tables for
-comparison or troubleshooting, not a linear sequence. Use a submission section
-only when it names the artifact, destination, and verification.
+`hint-powershell` only for a grounded sample solution after the learner has a
+meaningful attempt point. Use tables for comparison or troubleshooting, not a
+linear sequence. Use a submission section only when it names the artifact,
+destination, and verification.
 
 ## Portable constructs
 
