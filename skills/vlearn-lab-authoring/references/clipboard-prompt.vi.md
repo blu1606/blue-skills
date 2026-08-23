@@ -7,11 +7,12 @@ thể và tín hiệu kiểm chứng; không viết quảng cáo hay thêm nội
 
 CỔNG 0 — ĐỌC NGUỒN GITHUB KHI NGƯỜI DÙNG CUNG CẤP
 
-Chỉ nhận raw GitHub URL hoặc link `github.com/<owner>/<repo>/blob/<ref>/<path>`
-chỉ rõ MỘT file. Repo home, thư mục, issue, PR hoặc `tree` thì hỏi lại file và
-ref; không đoán README/default branch, không clone hay duyệt toàn bộ repo.
-Đọc raw content trước. Nếu raw bị private/không truy cập được, kiểm tra `gh auth
-status`, rồi đọc đúng file/ref đó bằng:
+Nhận raw GitHub URL hoặc link `github.com/<owner>/<repo>/blob/<ref>/<path>` chỉ
+rõ MỘT file. Nếu người dùng đưa repo home, tự xác định default branch rồi đọc
+raw `README.md` làm nguồn ban đầu; ghi rõ lựa chọn này trong brief để họ đổi
+file nếu cần. Với issue, PR, thư mục hoặc `tree`, hỏi lại file/ref; không clone
+hay duyệt toàn bộ repo. Nếu raw bị private/không truy cập được, kiểm tra `gh
+auth status`, rồi đọc đúng file/ref đó bằng:
 
 ```powershell
 gh api -H "Accept: application/vnd.github.raw+json" "repos/<owner>/<repo>/contents/<path>?ref=<ref>"
@@ -37,28 +38,29 @@ trước khi yêu cầu dùng nó; giữ phần “vì sao” cạnh hành độ
 biến mọi dòng thành khẩu lệnh ngắn hoặc thêm lý do/kiến trúc/output không có
 trong nguồn. Nếu nguồn thiếu ngữ cảnh, hỏi lại hoặc dùng TODO đã được duyệt.
 
-CỔNG 1 — HỎI VÀ CHỐT BRIEF
+CỔNG 1 — SUY RA RỒI XÁC NHẬN BRIEF
 
-Trước khi tạo dàn ý, Markdown hoặc ví dụ, hỏi trong MỘT danh sách đánh số rồi
-chờ trả lời:
-1. Link brief, repo starter/template hoặc tài liệu nguồn nào là chuẩn? Link
-   nào học viên được xem?
-2. Học viên là ai; cần biết gì trước; Day nào; thời lượng và công cụ/quyền
-   truy cập nào đã có?
-3. Kết quả cuối cùng là artifact, hành vi quan sát được hoặc quyết định cụ
-   thể nào?
-4. Làm cá nhân hay nhóm? Nếu nhóm: số người, vai trò và nộp một bài hay từng
-   người?
-5. Nộp chính xác gì, ở đâu, và pass/fail, test, rubric, deadline hay ràng
-   buộc bảo mật nào đã được xác nhận?
+Sau khi đọc nguồn, tự trích mục tiêu, Day/người học, artifact, lệnh kiểm tra,
+rubric/cách nộp và dấu hiệu cá nhân/nhóm. Trả brief ngắn trước, không mở đầu
+bằng bảng câu hỏi:
 
-Thiếu dữ kiện thì chỉ hỏi; không xuất dàn ý hay Lab nháp. Không tự bịa link,
-repo, file, API, biến môi trường, phiên bản, lệnh, output test, deadline,
-rubric, kênh nộp bài hay dữ kiện từ tài liệu chưa xác nhận. Chỉ dùng
-`TODO — cần xác nhận` khi chủ sở hữu cho phép rõ ràng.
+Brief suy ra từ nguồn
+- Mục tiêu:
+- Người học / Day / thời lượng:
+- Link nguồn:
+- Hình thức: <dấu hiệu nguồn hoặc Cần xác nhận>
+- Deliverable và cách kiểm tra:
 
-Khi brief đủ, trả đúng năm dòng rồi chờ xác nhận, trừ khi người dùng đã cung
-cấp đủ dữ kiện và yêu cầu viết ngay:
+Sau đó chỉ hỏi người dùng xác nhận hoặc sửa inference quan trọng nhất, ví dụ:
+“Tôi hiểu đây là bài cá nhân vì `<dấu hiệu cụ thể>`. Bạn xác nhận chứ?” Nếu
+người dùng sửa, dùng thông tin đó. Chỉ hỏi MỘT câu follow-up cụ thể khi còn
+thiếu dữ kiện bắt buộc để soạn Lab; không quay về questionnaire chung chung.
+Không tự bịa link, repo, file, API, biến môi trường, phiên bản, lệnh, output
+test, deadline, rubric hoặc kênh nộp bài. Chỉ dùng `TODO — cần xác nhận` khi
+chủ sở hữu cho phép rõ ràng.
+
+Khi brief được xác nhận, trả đúng năm dòng sau trước khi soạn, trừ khi người
+dùng đã cung cấp đủ dữ kiện và yêu cầu viết ngay:
 
 Brief đã chốt
 - Mục tiêu:

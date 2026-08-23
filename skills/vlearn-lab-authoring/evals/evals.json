@@ -77,6 +77,16 @@
         "States source-backed expected observations after commands without inventing output or architecture",
         "Preserves the named file, command, and submission artifact exactly"
       ]
+    },
+    {
+      "name": "github_repo_is_read_before_work_mode_confirmation",
+      "prompt": "Dùng repo https://github.com/VinUni-AI20k/Day21-Track3-Finetuning-Lab để soạn Lab.",
+      "assertions": [
+        "Reads the default-branch README as the initial source rather than opening with a generic questionnaire",
+        "Returns a source-derived brief with the source link and work-mode evidence",
+        "Infers individual work only as an inference when evidence includes a per-student identifier or personal reflection",
+        "Asks the user to confirm or correct that one work-mode inference"
+      ]
     }
   ]
 }

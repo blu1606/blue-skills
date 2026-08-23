@@ -2,7 +2,9 @@
 
 ## Required brief
 
-Collect these facts before drafting. Combine questions into one numbered turn.
+Collect these facts before drafting. When a GitHub source exists, derive what it
+actually states first and ask only for confirmation/correction or a material
+gap. Without a source, combine the missing questions into one numbered turn.
 
 1. **Source** — Lab brief URL, starter repository/template, or owner-approved
    source material. Ask whether links are learner-visible.
@@ -18,6 +20,25 @@ Collect these facts before drafting. Combine questions into one numbered turn.
 If a required answer is absent, ask it. Do not infer it from a course title.
 If the owner permits an assumption, label it `TODO — cần xác nhận` in the
 draft; otherwise wait.
+
+## Source-derived confirmation gate
+
+After reading a GitHub source, present the brief in this form before asking
+anything else:
+
+```text
+Brief suy ra từ nguồn
+- Mục tiêu:
+- Người học / Day:
+- Link nguồn:
+- Hình thức: <dấu hiệu nguồn hoặc Cần xác nhận>
+- Deliverable và cách kiểm tra:
+
+Tôi hiểu đây là <cá nhân/nhóm/chưa rõ> vì <dấu hiệu cụ thể>. Bạn xác nhận hay chỉnh lại?
+```
+
+Do not present a source inference as settled policy. A concise confirmation is
+better than a generic interview. If the owner corrects it, use the correction.
 
 ## Confirmation gate
 

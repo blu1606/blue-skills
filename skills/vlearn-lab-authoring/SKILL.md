@@ -15,35 +15,37 @@ policies, credentials, or facts that the course owner did not provide.
 ## Required workflow
 
 1. When the user provides a GitHub source link, read
-   `references/github-source-ingestion.md` first. Retrieve only the named
-   Markdown source: use its raw GitHub content URL first, then use authenticated
-   `gh api` only if the raw request is private or unavailable. Do not clone a
-   repository, ask for a token, or infer a file path/ref from a repo home page.
+   `references/github-source-ingestion.md` first. Retrieve the named Markdown
+   source with raw GitHub content first, then authenticated `gh api` only if
+   raw access is private or unavailable. For a repository home link, read the
+   default-branch `README.md` as the initial source rather than opening with a
+   questionnaire. Do not clone a repository or ask for a token.
 2. When a GitHub source was retrieved, read
    `references/github-explanation-style.md` before drafting. Build the Lab's
    explanation from that source's real learning path; do not turn its commands
    into terse, disconnected bullets.
-3. Read `references/pedagogy-quality-gates.md` before drafting. Extract the
-   required brief fields from the user's message and supplied materials.
-4. If any required field is missing, ask the unanswered questions in one short
-   numbered message and wait. Do not output a draft, outline, or fabricated
-   placeholder Lab first. Ask about the Lab/starter-repository link, individual
-   versus team work, learner level and Day, deliverable/rubric, and execution
-   constraints.
-5. When answers are available, return a five-line `Brief đã chốt` / `Confirmed
-   brief`: outcome, learner and Day, source link, work mode, deliverable and
-   verification. Ask for confirmation when the request changes a material
-   choice. Skip the extra confirmation only when the user explicitly supplied
-   every field and asked to draft now.
-6. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
+3. Read `references/pedagogy-quality-gates.md`. Extract a source-grounded
+   `Brief suy ra từ nguồn` / `Source-derived brief`: outcome, learner/Day,
+   source link, work-mode evidence, deliverable, and verification. Mark only
+   genuinely absent facts as `Cần xác nhận`.
+4. Ask the user to confirm or correct that brief. Lead with the material
+   inference most likely to be wrong, such as “Repo cho thấy bài cá nhân — bạn
+   xác nhận chứ?”. Do not begin with a generic five-question interview.
+5. Ask one focused follow-up only when source evidence and the user's correction
+   still leave a fact necessary to author the Lab unresolved. Do not fabricate a
+   placeholder Lab or make several speculative assumptions at once.
+6. When the brief is confirmed, return the five-line `Brief đã chốt` /
+   `Confirmed brief`, then continue to draft. Skip a redundant confirmation only
+   when the user explicitly supplied every material fact and asked to draft now.
+7. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
    full diacritics unless another language is requested. Preserve supplied
    wording for official names, URLs, commands, and rubric criteria.
-7. Read `references/pedagogy-quality-gates.md` for a progressive hint or
+8. Read `references/pedagogy-quality-gates.md` for a progressive hint or
    learner-flow review when the request creates or materially revises a Lab.
-8. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
+9. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
    specificity, and review-mode gates against the draft. Revise failures
    before returning Markdown. Do not claim to detect whether text is AI-made.
-9. Return one complete Markdown document, then a short validation note listing
+10. Return one complete Markdown document, then a short validation note listing
    the confirmed source link, work mode, deliverable, and any `TODO` that the
    user explicitly accepted.
 

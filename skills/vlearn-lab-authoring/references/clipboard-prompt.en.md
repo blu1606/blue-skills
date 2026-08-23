@@ -6,11 +6,12 @@ concrete actions, and observable evidence; do not use promotional filler.
 
 GATE 0 — READ A USER-PROVIDED GITHUB SOURCE
 
-Accept only a raw GitHub URL or a `github.com/<owner>/<repo>/blob/<ref>/<path>`
-link that names ONE file. For a repo home, directory, issue, PR, or `tree` URL,
-ask for the exact file and ref; never guess a README/default branch, clone, or
-scan the repository. Read raw content first. If it is private or inaccessible,
-check `gh auth status`, then read that exact path/ref with:
+Accept a raw GitHub URL or a `github.com/<owner>/<repo>/blob/<ref>/<path>` link
+that names ONE file. For a repo home, resolve the default branch and read raw
+`README.md` as the initial source; state that choice in the brief so the owner
+can redirect to another file. For a directory, issue, PR, or `tree` URL, ask
+for the file/ref; do not clone or scan the repository. If raw is private or
+inaccessible, check `gh auth status`, then read that exact path/ref with:
 
 ```powershell
 gh api -H "Accept: application/vnd.github.raw+json" "repos/<owner>/<repo>/contents/<path>?ref=<ref>"
@@ -38,26 +39,29 @@ action it justifies. Do not make every line a terse imperative or invent
 rationale, architecture, output, or context absent from the source. Ask or use
 an approved TODO when context is missing.
 
-GATE 1 — ASK AND CONFIRM THE BRIEF
+GATE 1 — DERIVE, THEN CONFIRM THE BRIEF
 
-Before an outline, Markdown, or example, ask once in a numbered list and wait:
-1. Which Lab brief, starter/template repository, or source material is
-   authoritative? Which links can learners see?
-2. Who are the learners; what do they know already; which Day, duration, tools,
-   and access are available?
-3. What concrete artifact, observable behaviour, or decision must result?
-4. Is the work individual or team-based? For a team: size, roles, and one
-   submission or one per learner?
-5. What is submitted, where, and which pass/fail check, test, rubric, deadline,
-   or security constraint is confirmed?
+After reading the source, derive its stated outcome, learner/Day, artifact,
+verification commands, rubric/submission, and individual/team signals. Return
+a compact brief before asking anything; do not open with a generic interview:
 
-If facts are missing, ask only; do not draft an outline or Lab. Never invent a
-link, repository, file, API, environment variable, version, command, test
-output, deadline, rubric, submission channel, or unsupported source fact. Use
-`TODO — needs confirmation` only with the owner's explicit approval.
+Source-derived brief
+- Outcome:
+- Learner / Day / duration:
+- Source link:
+- Work mode: <source evidence or Needs confirmation>
+- Deliverable and verification:
 
-When the brief is complete, return exactly five lines and wait for confirmation
-unless every fact is already explicit and the user asked to draft now:
+Then ask the owner to confirm or correct the most material inference, for
+example: “I understand this is individual work because `<specific evidence>`.
+Can you confirm?” Apply the correction. Ask only ONE focused follow-up when a
+fact necessary to author the Lab remains unresolved; do not revert to a generic
+questionnaire. Never invent a link, repository, file, API, environment
+variable, version, command, test output, deadline, rubric, or submission
+channel. Use `TODO — needs confirmation` only with explicit owner approval.
+
+When confirmed, return these five lines before drafting unless every fact is
+already explicit and the user asked to draft now:
 
 Confirmed brief
 - Outcome:
