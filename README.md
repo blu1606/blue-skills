@@ -59,12 +59,6 @@ Install globally:
 npx skills add blu1606/blue-skills --skill vlearn-lab-authoring -g -y
 ```
 
-Install for Codex:
-
-```bash
-npx skills add blu1606/blue-skills --skill vlearn-lab-authoring -a codex -g -y
-```
-
 Then ask your agent:
 
 ```text
