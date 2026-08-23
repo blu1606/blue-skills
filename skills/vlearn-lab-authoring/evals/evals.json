@@ -67,6 +67,16 @@
         "Asks the owner to authenticate or confirm access when gh retrieval fails",
         "Does not clone the repository or guess another branch or Markdown file"
       ]
+    },
+    {
+      "name": "github_lab_is_explained_as_a_connected_walkthrough",
+      "prompt": "Từ file GitHub đã xác nhận có hướng dẫn mở template.py, chạy pytest tests -v, rồi nộp solution.zip, hãy viết Lab cho người mới.",
+      "assertions": [
+        "Explains how each source-backed phase contributes to the final artifact before or alongside the ordered actions",
+        "Uses readable complete Vietnamese sentences and natural transitions instead of only terse command bullets",
+        "States source-backed expected observations after commands without inventing output or architecture",
+        "Preserves the named file, command, and submission artifact exactly"
+      ]
     }
   ]
 }

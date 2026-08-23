@@ -19,27 +19,31 @@ policies, credentials, or facts that the course owner did not provide.
    Markdown source: use its raw GitHub content URL first, then use authenticated
    `gh api` only if the raw request is private or unavailable. Do not clone a
    repository, ask for a token, or infer a file path/ref from a repo home page.
-2. Read `references/pedagogy-quality-gates.md` before drafting. Extract the
+2. When a GitHub source was retrieved, read
+   `references/github-explanation-style.md` before drafting. Build the Lab's
+   explanation from that source's real learning path; do not turn its commands
+   into terse, disconnected bullets.
+3. Read `references/pedagogy-quality-gates.md` before drafting. Extract the
    required brief fields from the user's message and supplied materials.
-3. If any required field is missing, ask the unanswered questions in one short
+4. If any required field is missing, ask the unanswered questions in one short
    numbered message and wait. Do not output a draft, outline, or fabricated
    placeholder Lab first. Ask about the Lab/starter-repository link, individual
    versus team work, learner level and Day, deliverable/rubric, and execution
    constraints.
-4. When answers are available, return a five-line `Brief đã chốt` / `Confirmed
+5. When answers are available, return a five-line `Brief đã chốt` / `Confirmed
    brief`: outcome, learner and Day, source link, work mode, deliverable and
    verification. Ask for confirmation when the request changes a material
    choice. Skip the extra confirmation only when the user explicitly supplied
    every field and asked to draft now.
-5. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
+6. Read `references/markdown-contract.md`. Write the Lab in Vietnamese with
    full diacritics unless another language is requested. Preserve supplied
    wording for official names, URLs, commands, and rubric criteria.
-6. Read `references/pedagogy-quality-gates.md` for a progressive hint or
+7. Read `references/pedagogy-quality-gates.md` for a progressive hint or
    learner-flow review when the request creates or materially revises a Lab.
-7. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
+8. Read `references/anti-slop-quality-gates.md`. Run its source-faithfulness,
    specificity, and review-mode gates against the draft. Revise failures
    before returning Markdown. Do not claim to detect whether text is AI-made.
-8. Return one complete Markdown document, then a short validation note listing
+9. Return one complete Markdown document, then a short validation note listing
    the confirmed source link, work mode, deliverable, and any `TODO` that the
    user explicitly accepted.
 
@@ -82,6 +86,9 @@ policies, credentials, or facts that the course owner did not provide.
 - `references/github-source-ingestion.md` — safe raw GitHub then `gh api`
   retrieval for an exact user-provided Markdown path. Read when a GitHub link is
   supplied as a Lab source.
+- `references/github-explanation-style.md` — human, connected explanation of a
+  retrieved GitHub Lab without inventing rationale or details. Read after a
+  GitHub source is retrieved.
 - `references/clipboard-prompt.vi.md` — standalone Vietnamese prompt used by
   VLearn Studio's Copy skill action; keep it aligned when a requirement changes.
 - `evals/evals.json` — regression prompts for skill review.
