@@ -57,6 +57,16 @@
         "Does not claim the text is AI-written",
         "Does not fabricate commands, files, outcomes, or a submission policy"
       ]
+    },
+    {
+      "name": "private_github_source_uses_gh_without_token",
+      "prompt": "Soạn Lab từ https://github.com/acme/course/blob/main/labs/day-03.md. Raw content bị 404 vì repo private.",
+      "assertions": [
+        "Tries the exact raw source before using gh api for the same owner, repo, path, and ref",
+        "Checks gh auth status and never requests or exposes a token",
+        "Asks the owner to authenticate or confirm access when gh retrieval fails",
+        "Does not clone the repository or guess another branch or Markdown file"
+      ]
     }
   ]
 }
