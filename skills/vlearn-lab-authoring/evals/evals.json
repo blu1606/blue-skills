@@ -1,0 +1,35 @@
+{
+  "evals": [
+    {
+      "name": "missing_brief_requires_qna",
+      "prompt": "Viết Lab RAG cho Day 03",
+      "assertions": [
+        "Asks for the Lab or starter-repository link",
+        "Asks whether the Lab is individual or team work",
+        "Asks for the deliverable and verification or rubric",
+        "Does not produce a Markdown Lab before the missing brief is answered",
+        "Does not invent a repository, test, or deadline"
+      ]
+    },
+    {
+      "name": "confirmed_individual_lab",
+      "prompt": "Viết ngay Lab cá nhân Day 03. Repo https://github.com/example/rag-starter, deliverable là README.md và chạy pytest tests -v; rubric pass toàn bộ test.",
+      "assertions": [
+        "Produces Vietnamese Markdown with a title and at least one ## section",
+        "Preserves the supplied repository link and pytest command",
+        "States the individual work mode and exact deliverable",
+        "Uses concrete actions and checkable completion signals",
+        "Does not add unsupported APIs, files, or test results"
+      ]
+    },
+    {
+      "name": "team_lab_needs_submission_policy",
+      "prompt": "Tạo Lab nhóm Day 05 với repo đã gửi, mỗi nhóm 3 người.",
+      "assertions": [
+        "Asks for roles and whether submission is per team or per learner",
+        "Asks for the deliverable and assessment facts",
+        "Does not invent a grading rubric or submission destination"
+      ]
+    }
+  ]
+}

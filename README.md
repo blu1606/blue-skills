@@ -45,6 +45,32 @@ Then:
 Tạo đề ôn tập AI Thực Chiến 20 câu
 ```
 
+### vlearn-lab-authoring
+
+Create or review VLearn Markdown Labs from a confirmed teaching brief. The
+skill asks for the Lab/repository link, individual versus team mode,
+deliverable/rubric, and execution constraints before it drafts. It validates
+VLearn Markdown structure, learner flow, source faithfulness, and anti-slop
+quality gates.
+
+Install globally:
+
+```bash
+npx skills add blu1606/blue-skills --skill vlearn-lab-authoring -g -y
+```
+
+Install for Codex:
+
+```bash
+npx skills add blu1606/blue-skills --skill vlearn-lab-authoring -a codex -g -y
+```
+
+Then ask your agent:
+
+```text
+Soạn Lab Day 03 từ brief này. Hãy hỏi các thông tin còn thiếu trước khi viết.
+```
+
 or:
 
 ```text
